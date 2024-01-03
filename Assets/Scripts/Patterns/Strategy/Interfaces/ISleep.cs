@@ -2,6 +2,6 @@
 {
     public interface ISleep
     {
-        public void Sleep();
+        public string Sleep();
     }
 }

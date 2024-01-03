@@ -2,6 +2,6 @@
 {
     public interface IWalk
     {
-        public void Walk();
+        public string Walk();
     }
 }

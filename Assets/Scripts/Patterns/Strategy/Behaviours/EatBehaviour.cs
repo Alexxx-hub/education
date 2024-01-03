@@ -1,5 +1,4 @@
 ﻿using Patterns.Strategy.Interfaces;
-using UnityEngine;
 
 namespace Patterns.Strategy.Behaviours
 {
@@ -12,9 +11,9 @@ namespace Patterns.Strategy.Behaviours
             _text = text;
         }
         //---------------------------------------------------------------------------------------------------------------
-        public void Eat()
+        public string Eat()
         {
-            Debug.Log(_text);
+            return "I'm eat: " + _text;
         }
         //---------------------------------------------------------------------------------------------------------------
     }

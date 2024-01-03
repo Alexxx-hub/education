@@ -10,8 +10,6 @@ namespace Patterns.Strategy.Animals
 {
     public class Dog : AnimalBase
     {
-        public Dictionary<string, Action> Behaviour { get; private set; }
-
         [SerializeField] private SpeakBehaviourTextList _speakBehaviourTextList;
         [SerializeField] private string _food;
         [SerializeField] private string _walk;
@@ -40,7 +38,8 @@ namespace Patterns.Strategy.Animals
         //---------------------------------------------------------------------------------------------------------------
         private void MarkSelected()
         {
-            GameSignalService.SelectAnimal(Behaviour, CurrentBehaviour);
+            GameSignalService.SelectAnimal(this);
+            GameSignalService.SetButton(_button);
         }
         //---------------------------------------------------------------------------------------------------------------
     }

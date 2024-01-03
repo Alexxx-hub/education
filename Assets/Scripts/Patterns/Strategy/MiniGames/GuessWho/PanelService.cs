@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using Patterns.Strategy.Animals;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +10,7 @@ namespace Patterns.Strategy.MiniGames.GuessWho
     public class PanelService : MonoBehaviour
     {
         private const string AnimalNotSelected = "No animal is selected";
+        private const string AnimalCanNotBehaviour = "I'm can't to - ";
         
         [SerializeField] private Button _walkButton;
         [SerializeField] private Button _eatButton;
@@ -17,17 +18,16 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         [SerializeField] private Button _sleepButton;
         [SerializeField] private TextMeshProUGUI _textField;
 
-        private Dictionary<string, Action> _behavioursList;
-        private string _currentBehaviour;
+        private AnimalBase _selectedAnimal;
         //---------------------------------------------------------------------------------------------------------------
         private void OnEnable()
         {
-            GameSignalService.OnAnimalSelected += SetCurrantBehaviour;
+            GameSignalService.OnAnimalSelected += SetCurrentAnimal;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void OnDisable()
         {
-            GameSignalService.OnAnimalSelected -= SetCurrantBehaviour;
+            GameSignalService.OnAnimalSelected -= SetCurrentAnimal;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void Awake()
@@ -39,31 +39,64 @@ namespace Patterns.Strategy.MiniGames.GuessWho
             _sleepButton.onClick.AddListener(SleepButton);
         }
         //---------------------------------------------------------------------------------------------------------------
-        private void SetCurrantBehaviour(Dictionary<string, Action> behaviours, string currentBehaviour)
+        private void SetCurrentAnimal(AnimalBase animal)
         {
-            _behavioursList.Clear();
-            _behavioursList = behaviours;
-            _currentBehaviour = currentBehaviour;
+            _textField.text = "";
+            _selectedAnimal = animal;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void WalkButton()
         {
-            
+            try
+            {
+                if (_selectedAnimal.Behaviour.Keys.Contains("walk"))
+                {
+                    _selectedAnimal.Behaviour["walk"].Invoke();
+                    _textField.text = _selectedAnimal.CurrentBehaviour;
+                }
+                else
+                {
+                    _textField.text = AnimalCanNotBehaviour + "walk";
+                }
+            }
+            catch (Exception e)
+            {
+                _textField.text = AnimalNotSelected;
+            }
         }
         //---------------------------------------------------------------------------------------------------------------
         private void EatButton()
         {
-            
+            try
+            {
+                if (_selectedAnimal.Behaviour.Keys.Contains("eat"))
+                {
+                    _selectedAnimal.Behaviour["eat"].Invoke();
+                    _textField.text = _selectedAnimal.CurrentBehaviour;
+                }
+                else
+                {
+                    _textField.text = AnimalCanNotBehaviour + "eat";
+                }
+            }
+            catch (Exception e)
+            {
+                _textField.text = AnimalNotSelected;
+            }
         }
         //---------------------------------------------------------------------------------------------------------------
         private void SpeakButton()
         {
             try
             {
-                if (_behavioursList.Keys.Contains("speak"))
+                if (_selectedAnimal.Behaviour.Keys.Contains("speak"))
                 {
-                    _behavioursList["speak"].Invoke();
-                    _textField.text = _currentBehaviour;
+                    _selectedAnimal.Behaviour["speak"].Invoke();
+                    _textField.text = _selectedAnimal.CurrentBehaviour;
+                }
+                else
+                {
+                    _textField.text = AnimalCanNotBehaviour + "speak";
                 }
             }
             catch (Exception e)
@@ -74,7 +107,22 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         //---------------------------------------------------------------------------------------------------------------
         private void SleepButton()
         {
-            
+            try
+            {
+                if (_selectedAnimal.Behaviour.Keys.Contains("sleep"))
+                {
+                    _selectedAnimal.Behaviour["sleep"].Invoke();
+                    _textField.text = _selectedAnimal.CurrentBehaviour;
+                }
+                else
+                {
+                    _textField.text = AnimalCanNotBehaviour + "sleep";
+                }
+            }
+            catch (Exception e)
+            {
+                _textField.text = AnimalNotSelected;
+            }
         }
         //---------------------------------------------------------------------------------------------------------------
     }

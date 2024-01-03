@@ -2,6 +2,6 @@
 {
     public interface IEat
     {
-        public void Eat();
+        public string Eat();
     }
 }

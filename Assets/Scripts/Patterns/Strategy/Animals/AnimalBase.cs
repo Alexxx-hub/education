@@ -1,10 +1,13 @@
-﻿using Patterns.Strategy.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using Patterns.Strategy.Interfaces;
 using UnityEngine;
 
 namespace Patterns.Strategy.Animals
 {
     public abstract class AnimalBase : MonoBehaviour
     {
+        public Dictionary<string, Action> Behaviour { get; protected set; }
         public string CurrentBehaviour { get; private set; }
         
         protected ISpeak _speakBehaviour;
@@ -39,17 +42,17 @@ namespace Patterns.Strategy.Animals
         //---------------------------------------------------------------------------------------------------------------
         protected void Eat()
         {
-            _eatBehaviour.Eat();
+            CurrentBehaviour = _eatBehaviour.Eat();
         }
         //---------------------------------------------------------------------------------------------------------------
         protected void Walk()
         {
-            _walkBehaviour.Walk();
+            CurrentBehaviour = _walkBehaviour.Walk();
         }
         //---------------------------------------------------------------------------------------------------------------
         protected void Sleep()
         {
-            _sleepBehaviour.Sleep();
+            CurrentBehaviour = _sleepBehaviour.Sleep();
         }
         //---------------------------------------------------------------------------------------------------------------
     }

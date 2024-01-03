@@ -1,15 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
+using Patterns.Strategy.Animals;
+using UnityEngine.UI;
 
 namespace Patterns.Strategy.MiniGames.GuessWho
 {
     public static class GameSignalService
     {
-        public static event Action<Dictionary<string, Action>, string> OnAnimalSelected;
+        public static event Action<AnimalBase> OnAnimalSelected;
+        public static event Action<Button> OnButtonSelected;
         //---------------------------------------------------------------------------------------------------------------
-        public static void SelectAnimal(Dictionary<string, Action> animalBehaviour, string behaviourResault)
+        public static void SelectAnimal(AnimalBase animal)
         {
-            OnAnimalSelected?.Invoke(animalBehaviour, behaviourResault);
+            OnAnimalSelected?.Invoke(animal);
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        public static void SetButton(Button button)
+        {
+            OnButtonSelected?.Invoke(button);
         }
         //---------------------------------------------------------------------------------------------------------------
     }
