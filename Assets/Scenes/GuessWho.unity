@@ -913,7 +913,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: cow
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -946,7 +946,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
   m_fontSizeMax: 0
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1136,8 +1136,9 @@ GameObject:
   - component: {fileID: 625959760}
   - component: {fileID: 625959759}
   - component: {fileID: 625959758}
+  - component: {fileID: 625959761}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Cow Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1245,6 +1246,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625959756}
   m_CullTransparentMesh: 1
+--- !u!114 &625959761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625959756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c789cbf584c474980998f8ffe5d755b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speakBehaviourTextList: {fileID: 11400000, guid: d1e3f9a47100eca46a58e36fe84a1008,
+    type: 2}
+  _food: grass and hay
+  _walk: I'm walk on 4 legs
+  _sleep: I sleep standing up
 --- !u!1 &716174720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,7 +2260,7 @@ GameObject:
   - component: {fileID: 1082707361}
   - component: {fileID: 1082707364}
   m_Layer: 5
-  m_Name: CatButton
+  m_Name: Cat Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3512,7 +3530,7 @@ GameObject:
   - component: {fileID: 1664127232}
   - component: {fileID: 1664127235}
   m_Layer: 5
-  m_Name: DogButton
+  m_Name: Dog Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
