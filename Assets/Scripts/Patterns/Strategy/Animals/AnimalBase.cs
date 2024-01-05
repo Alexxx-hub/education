@@ -7,13 +7,17 @@ namespace Patterns.Strategy.Animals
 {
     public abstract class AnimalBase : MonoBehaviour
     {
-        public Dictionary<string, Action> Behaviour { get; protected set; }
-        public string CurrentBehaviour { get; private set; }
+        [SerializeField] protected Sprite _sprite;
         
         protected ISpeak _speakBehaviour;
         protected IEat _eatBehaviour;
         protected IWalk _walkBehaviour;
         protected ISleep _sleepBehaviour;
+        
+        public Dictionary<string, Action> Behaviour { get; protected set; }
+        public string CurrentBehaviour { get; private set; }
+        public Sprite Sprite => _sprite;
+
         //---------------------------------------------------------------------------------------------------------------
         protected void SetSpeakBehaviour(ISpeak speakBehaviour)
         {
