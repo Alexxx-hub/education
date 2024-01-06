@@ -14,8 +14,7 @@ namespace Patterns.Strategy.Animals
         [SerializeField] private string _food;
         [SerializeField] private string _walk;
         [SerializeField] private string _sleep;
-        private Button _button;
-
+        //---------------------------------------------------------------------------------------------------------------
         private void Awake()
         {
             SetSpeakBehaviour(new SpeakBehaviour(_speakBehaviourTextList.Texts));
@@ -38,7 +37,6 @@ namespace Patterns.Strategy.Animals
         private void MarkSelected()
         {
             GameSignalService.SelectAnimal(this);
-            GameSignalService.SetButton(_button);
         }
         //---------------------------------------------------------------------------------------------------------------
     }

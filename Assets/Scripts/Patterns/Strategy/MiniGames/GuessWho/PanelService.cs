@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Patterns.Strategy.Animals;
 using TMPro;
 using UnityEngine;
@@ -23,16 +22,18 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         private void OnEnable()
         {
             GameSignalService.OnAnimalSelected += SetCurrentAnimal;
+            GameSignalService.OnShakeCards += ResetPanel;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void OnDisable()
         {
             GameSignalService.OnAnimalSelected -= SetCurrentAnimal;
+            GameSignalService.OnShakeCards -= ResetPanel;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void Awake()
         {
-            _textField.text = "";
+            ResetPanel();
             _walkButton.onClick.AddListener(WalkButton);
             _eatButton.onClick.AddListener(EatButton);
             _speakButton.onClick.AddListener(SpeakButton);
@@ -47,7 +48,7 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         //---------------------------------------------------------------------------------------------------------------
         private void WalkButton()
         {
-            try
+            if(_selectedAnimal != null)
             {
                 if (_selectedAnimal.Behaviour.Keys.Contains("walk"))
                 {
@@ -59,7 +60,7 @@ namespace Patterns.Strategy.MiniGames.GuessWho
                     _textField.text = AnimalCanNotBehaviour + "walk";
                 }
             }
-            catch (Exception e)
+            else
             {
                 _textField.text = AnimalNotSelected;
             }
@@ -67,7 +68,7 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         //---------------------------------------------------------------------------------------------------------------
         private void EatButton()
         {
-            try
+            if(_selectedAnimal != null)
             {
                 if (_selectedAnimal.Behaviour.Keys.Contains("eat"))
                 {
@@ -79,7 +80,7 @@ namespace Patterns.Strategy.MiniGames.GuessWho
                     _textField.text = AnimalCanNotBehaviour + "eat";
                 }
             }
-            catch (Exception e)
+            else
             {
                 _textField.text = AnimalNotSelected;
             }
@@ -87,7 +88,7 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         //---------------------------------------------------------------------------------------------------------------
         private void SpeakButton()
         {
-            try
+            if(_selectedAnimal != null)
             {
                 if (_selectedAnimal.Behaviour.Keys.Contains("speak"))
                 {
@@ -99,7 +100,7 @@ namespace Patterns.Strategy.MiniGames.GuessWho
                     _textField.text = AnimalCanNotBehaviour + "speak";
                 }
             }
-            catch (Exception e)
+            else
             {
                 _textField.text = AnimalNotSelected;
             }
@@ -107,7 +108,7 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         //---------------------------------------------------------------------------------------------------------------
         private void SleepButton()
         {
-            try
+            if(_selectedAnimal != null)
             {
                 if (_selectedAnimal.Behaviour.Keys.Contains("sleep"))
                 {
@@ -119,10 +120,16 @@ namespace Patterns.Strategy.MiniGames.GuessWho
                     _textField.text = AnimalCanNotBehaviour + "sleep";
                 }
             }
-            catch (Exception e)
+            else
             {
                 _textField.text = AnimalNotSelected;
             }
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void ResetPanel()
+        {
+            _textField.text = "";
+            _selectedAnimal = null;
         }
         //---------------------------------------------------------------------------------------------------------------
     }

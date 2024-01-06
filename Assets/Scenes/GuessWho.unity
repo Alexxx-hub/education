@@ -345,7 +345,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d862e7016048d5ba4473cb9f7e5659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fadeTime: 0.2
+  _shakeTime: 2
   _defaultSprite: {fileID: 21300000, guid: 87a081082226a30498ad536980d785db, type: 3}
+  _animalSprites:
+  - {fileID: 21300000, guid: 398f812a95527e94884652cf21bb4514, type: 3}
+  - {fileID: 21300000, guid: 03d8f06bbe57b504694c648112b27b87, type: 3}
+  - {fileID: 21300000, guid: b3fa347da3af9c54e8218f6167ab66f8, type: 3}
+  - {fileID: 21300000, guid: 0bccd49387c904440ad7ca76fd0a5ea1, type: 3}
+  - {fileID: 21300000, guid: 6a72deb9ee559a6438f865aa0125f6a0, type: 3}
+  - {fileID: 21300000, guid: 0f540e1d2caf86747acda32cc00093ea, type: 3}
+  - {fileID: 21300000, guid: f72133ca2f9a1c640981a6fe0c029ea3, type: 3}
+  - {fileID: 21300000, guid: f4c11ea33a20d314fab8a343027601ec, type: 3}
+  - {fileID: 21300000, guid: 619abf2dba8014247b6a609aec4f97dc, type: 3}
+  _shakeButton: {fileID: 617738189}
 --- !u!1 &133880416
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +493,139 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133880416}
   m_CullTransparentMesh: 1
+--- !u!1 &175164773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 175164774}
+  - component: {fileID: 175164778}
+  - component: {fileID: 175164777}
+  - component: {fileID: 175164776}
+  - component: {fileID: 175164775}
+  m_Layer: 5
+  m_Name: Button Close
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &175164774
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175164773}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1285855521}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -120, y: -92}
+  m_SizeDelta: {x: 120, y: 120}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &175164775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175164773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61dae9ac3fe54a1681b987a1a95cf356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &175164776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175164773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 175164777}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &175164777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175164773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b09e9706a75f2e14a9e6c3ca1d0b0a45, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &175164778
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175164773}
+  m_CullTransparentMesh: 1
 --- !u!1 &280812305
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,8 +639,9 @@ GameObject:
   - component: {fileID: 280812308}
   - component: {fileID: 280812307}
   - component: {fileID: 280812310}
+  - component: {fileID: 280812311}
   m_Layer: 5
-  m_Name: Rooster Button
+  m_Name: Rooster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -614,12 +761,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5c7515e2ec433cab4e414f30c05d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 0bccd49387c904440ad7ca76fd0a5ea1, type: 3}
   _speakBehaviourTextList: {fileID: 11400000, guid: 7e70da719bd8b86478f27f3b8f00fe9e,
     type: 2}
   _food: corn
   _walk: I walk on 2 legs
   _sleep: I sleep sitting
+--- !u!114 &280812311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280812305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c533b55cb64c36ace3f3112a28c0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &319767945
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +926,7 @@ GameObject:
   - component: {fileID: 468988849}
   - component: {fileID: 468988848}
   - component: {fileID: 468988851}
+  - component: {fileID: 468988852}
   m_Layer: 5
   m_Name: Turtle
   m_TagString: Untagged
@@ -888,10 +1048,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c51d119d914a5c9d750c21619b73f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 6a72deb9ee559a6438f865aa0125f6a0, type: 3}
   _food: fish
   _walk: I crawl on 4 legs
   _sleep: I sleep lying down
+--- !u!114 &468988852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468988846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c533b55cb64c36ace3f3112a28c0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &486374993
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +1136,10 @@ MonoBehaviour:
   - {fileID: 1510291912}
   - {fileID: 1072603534}
   - {fileID: 2086408939}
-  _selectedButtonColor:
+  _selectedButtonColorCorrect:
+    serializedVersion: 2
+    rgba: 4279303984
+  _selectedButtonColorWrong:
     serializedVersion: 2
     rgba: 4279270911
   _textColorBase:
@@ -1249,6 +1424,126 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550571839}
   m_CullTransparentMesh: 1
+--- !u!1 &617738187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 617738188}
+  - component: {fileID: 617738191}
+  - component: {fileID: 617738190}
+  - component: {fileID: 617738189}
+  m_Layer: 5
+  m_Name: Button Shake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &617738188
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617738187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 948542335}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -302.1}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &617738189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617738187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0.6792453, g: 0.49021003, b: 0.49021003, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.6784314, g: 0.49019608, b: 0.49019608, a: 1}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 617738190}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &617738190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617738187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d6bfcd0cb1780b84a8bd5ecc78c6dbbf, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &617738191
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617738187}
+  m_CullTransparentMesh: 1
 --- !u!1 &625959756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,8 +1557,9 @@ GameObject:
   - component: {fileID: 625959759}
   - component: {fileID: 625959758}
   - component: {fileID: 625959761}
+  - component: {fileID: 625959762}
   m_Layer: 5
-  m_Name: Cow Button
+  m_Name: Cow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1383,12 +1679,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c789cbf584c474980998f8ffe5d755b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: b3fa347da3af9c54e8218f6167ab66f8, type: 3}
   _speakBehaviourTextList: {fileID: 11400000, guid: d1e3f9a47100eca46a58e36fe84a1008,
     type: 2}
   _food: grass and hay
   _walk: I walk on 4 legs
   _sleep: I sleep standing up
+--- !u!114 &625959762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625959756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c533b55cb64c36ace3f3112a28c0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &716174720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,6 +2300,7 @@ RectTransform:
   m_Children:
   - {fileID: 1753204082}
   - {fileID: 25181160}
+  - {fileID: 617738188}
   m_Father: {fileID: 1285855521}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.031000001, y: 0.1975055}
@@ -2012,8 +2321,9 @@ GameObject:
   - component: {fileID: 994632953}
   - component: {fileID: 994632952}
   - component: {fileID: 994632955}
+  - component: {fileID: 994632956}
   m_Layer: 5
-  m_Name: Snake Button
+  m_Name: Snake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2133,12 +2443,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9850cc922f4bbb87892c5f1179c265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 0f540e1d2caf86747acda32cc00093ea, type: 3}
   _speakBehaviourTextList: {fileID: 11400000, guid: 6d82a15e20298954aa4fd00dffe12ceb,
     type: 2}
   _food: mice
   _walk: I'm crawling
   _sleep: I sleep lying down
+--- !u!114 &994632956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994632950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c533b55cb64c36ace3f3112a28c0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &1007137298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,8 +2712,9 @@ GameObject:
   - component: {fileID: 1072603535}
   - component: {fileID: 1072603534}
   - component: {fileID: 1072603537}
+  - component: {fileID: 1072603538}
   m_Layer: 5
-  m_Name: Ant Button
+  m_Name: Ant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2511,10 +2834,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7f282c61b24e7383153224d40e6e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: f4c11ea33a20d314fab8a343027601ec, type: 3}
   _food: No one knows
   _walk: I walk on many legs
   _sleep: No one knows
+--- !u!114 &1072603538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072603532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c533b55cb64c36ace3f3112a28c0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &1082707359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2528,8 +2863,9 @@ GameObject:
   - component: {fileID: 1082707362}
   - component: {fileID: 1082707361}
   - component: {fileID: 1082707364}
+  - component: {fileID: 1082707365}
   m_Layer: 5
-  m_Name: Cat Button
+  m_Name: Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2649,12 +2985,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b987d039cd46ec87fad53f15965c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 03d8f06bbe57b504694c648112b27b87, type: 3}
   _speakBehaviourTextList: {fileID: 11400000, guid: 6936955253f41664daaf232274973b3d,
     type: 2}
   _food: mice and milk
   _walk: I walk on 4 legs
   _sleep: I sleep in any pose
+--- !u!114 &1082707365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082707359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c533b55cb64c36ace3f3112a28c0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &1142043556
 GameObject:
   m_ObjectHideFlags: 0
@@ -2668,7 +3016,7 @@ GameObject:
   - component: {fileID: 1142043559}
   - component: {fileID: 1142043558}
   m_Layer: 5
-  m_Name: WalkButton
+  m_Name: Walk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3161,6 +3509,7 @@ RectTransform:
   - {fileID: 1007137299}
   - {fileID: 319767946}
   - {fileID: 794222529}
+  - {fileID: 175164774}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3318,7 +3667,7 @@ GameObject:
   - component: {fileID: 1398884837}
   - component: {fileID: 1398884836}
   m_Layer: 5
-  m_Name: SleepButton
+  m_Name: Sleep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3439,7 +3788,7 @@ GameObject:
   - component: {fileID: 1442578628}
   - component: {fileID: 1442578627}
   m_Layer: 5
-  m_Name: SpeekButton
+  m_Name: Speek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3560,7 +3909,7 @@ GameObject:
   - component: {fileID: 1507695544}
   - component: {fileID: 1507695543}
   m_Layer: 5
-  m_Name: EatButton
+  m_Name: Eat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3681,8 +4030,9 @@ GameObject:
   - component: {fileID: 1510291913}
   - component: {fileID: 1510291912}
   - component: {fileID: 1510291915}
+  - component: {fileID: 1510291916}
   m_Layer: 5
-  m_Name: Perch Button
+  m_Name: Perch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3802,9 +4152,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639907483bf249aa98459de643555e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: f72133ca2f9a1c640981a6fe0c029ea3, type: 3}
   _food: various
   _sleep: I sleep hanging in the water
+--- !u!114 &1510291916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510291910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c533b55cb64c36ace3f3112a28c0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &1664127230
 GameObject:
   m_ObjectHideFlags: 0
@@ -3818,8 +4180,9 @@ GameObject:
   - component: {fileID: 1664127233}
   - component: {fileID: 1664127232}
   - component: {fileID: 1664127235}
+  - component: {fileID: 1664127236}
   m_Layer: 5
-  m_Name: Dog Button
+  m_Name: Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3939,12 +4302,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfcc9016335b4935ae1797d9c6fca020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 398f812a95527e94884652cf21bb4514, type: 3}
   _speakBehaviourTextList: {fileID: 11400000, guid: 03465f5e3b547404aa8aafc35a2f3c08,
     type: 2}
   _food: bone and meat
   _walk: I walk on 4 legs
   _sleep: I sleep on my side
+--- !u!114 &1664127236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664127230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c533b55cb64c36ace3f3112a28c0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &1710025561
 GameObject:
   m_ObjectHideFlags: 0
@@ -4689,8 +5064,9 @@ GameObject:
   - component: {fileID: 2086408940}
   - component: {fileID: 2086408939}
   - component: {fileID: 2086408942}
+  - component: {fileID: 2086408943}
   m_Layer: 5
-  m_Name: Octopus Button
+  m_Name: Octopus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4810,9 +5186,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb5122f68a5474eaec1b13cfa08a2a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 619abf2dba8014247b6a609aec4f97dc, type: 3}
   _food: fish
   _sleep: No one knows
+--- !u!114 &2086408943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086408937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c533b55cb64c36ace3f3112a28c0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &2147465988
 GameObject:
   m_ObjectHideFlags: 0
