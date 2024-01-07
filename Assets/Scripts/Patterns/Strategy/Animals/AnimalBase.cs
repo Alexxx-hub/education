@@ -18,7 +18,6 @@ namespace Patterns.Strategy.Animals
         public Button Button => _button;
         public Dictionary<string, Action> Behaviour { get; protected set; }
         public string CurrentBehaviour { get; private set; }
-
         //---------------------------------------------------------------------------------------------------------------
         protected void SetSpeakBehaviour(ISpeak speakBehaviour)
         {
