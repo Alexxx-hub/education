@@ -6,7 +6,7 @@ namespace Patterns.Strategy.Move_Me.Units
     public abstract class UnitBase : MonoBehaviour
     {
         [SerializeField] protected float _speed;
-        
+
         protected bool _hasCommandMove;
         protected IMove _moveBehaviour;
         //---------------------------------------------------------------------------------------------------------------

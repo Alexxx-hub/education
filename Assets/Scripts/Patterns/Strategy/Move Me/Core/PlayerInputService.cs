@@ -1,11 +1,10 @@
 ﻿using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using ISelectable = Patterns.Strategy.Move_Me.Interfaces.ISelectable;
 
 namespace Patterns.Strategy.Move_Me.Core
 {
-    public class PlayerInputService
+    public class PlayerInputService : MonoBehaviour
     {
         public event Action<Vector3> OnMove;
         public event Action OnPatrol;
@@ -15,7 +14,15 @@ namespace Patterns.Strategy.Move_Me.Core
 
         public MoveCommands CurrentCommand => _currentCommand;
         //---------------------------------------------------------------------------------------------------------------
-        public void Move()
+        private void Update()
+        {
+            Select();
+            Deselect();
+            SwitchBehaviour();
+            Move();
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void Move()
         {
             if (Input.GetMouseButtonDown(1))
             {
@@ -36,7 +43,7 @@ namespace Patterns.Strategy.Move_Me.Core
             }
         }
         //---------------------------------------------------------------------------------------------------------------
-        public void Select()
+        private void Select()
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -49,13 +56,21 @@ namespace Patterns.Strategy.Move_Me.Core
 
                     if (unit != null)
                     {
-                        unit.Selected();
+                        unit.Select();
                     }
                 }
             }
         }
         //---------------------------------------------------------------------------------------------------------------
-        public void SwitchBehaviour()
+        private void Deselect()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                UnitSignalsService.DeselectUnit();
+            }
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void SwitchBehaviour()
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {

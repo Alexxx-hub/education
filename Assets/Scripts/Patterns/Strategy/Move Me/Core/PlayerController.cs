@@ -7,7 +7,7 @@ namespace Patterns.Strategy.Move_Me.Core
     public class PlayerController : MonoBehaviour
     {
         private string[] _commands;
-        private UnitBase _selectedUnit;
+        private UnitSelectable _selectedUnit;
         private PlayerInputService _playerInputService;
         //---------------------------------------------------------------------------------------------------------------
         private void OnEnable()
@@ -16,6 +16,7 @@ namespace Patterns.Strategy.Move_Me.Core
             _playerInputService.OnPatrol += SendCommandPatrol;
             _playerInputService.OnFollow += SendCommandFollow;
             UnitSignalsService.OnUnitSelected += GetSelectedUnit;
+            UnitSignalsService.OnUnitDeselected += DeselectUnit;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void OnDisable()
@@ -24,24 +25,23 @@ namespace Patterns.Strategy.Move_Me.Core
             _playerInputService.OnPatrol -= SendCommandPatrol;
             _playerInputService.OnFollow -= SendCommandFollow;
             UnitSignalsService.OnUnitSelected -= GetSelectedUnit;
+            UnitSignalsService.OnUnitDeselected -= DeselectUnit;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void Awake()
         {
-            _playerInputService = new PlayerInputService();
+            _playerInputService = GetComponent<PlayerInputService>();
         }
         //---------------------------------------------------------------------------------------------------------------
-        private void Update()
-        {
-            _playerInputService.Select();
-            _playerInputService.SwitchBehaviour();
-            _playerInputService.Move();
-        }
-        //---------------------------------------------------------------------------------------------------------------
-        private void GetSelectedUnit(UnitBase unit, string[] commands)
+        private void GetSelectedUnit(UnitSelectable unit, string[] commands)
         {
             _commands = commands;
             _selectedUnit = unit;
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void DeselectUnit()
+        {
+            _selectedUnit.Deselect();
         }
         //---------------------------------------------------------------------------------------------------------------
         private void SendCommandMove(Vector3 point)

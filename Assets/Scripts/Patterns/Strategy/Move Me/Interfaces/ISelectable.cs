@@ -2,6 +2,7 @@
 {
     public interface ISelectable
     {
-        public void Selected();
+        public void Select();
+        public void Deselect();
     }
 }

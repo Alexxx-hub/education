@@ -482,6 +482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1462077679}
   - component: {fileID: 1462077680}
+  - component: {fileID: 1462077681}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -514,6 +515,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0a1e3fff423432ab9a5685d3d8a6acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1462077681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462077678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f542422a3d4ef38b5af2731773d360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1907133794
@@ -559,7 +572,7 @@ GameObject:
   - component: {fileID: 1967924101}
   - component: {fileID: 1967924100}
   - component: {fileID: 1967924099}
-  - component: {fileID: 1967924098}
+  - component: {fileID: 1967924103}
   m_Layer: 0
   m_Name: Human
   m_TagString: Untagged
@@ -567,19 +580,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1967924098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967924097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d33fdcb354bf4764a175ccc0c8851a42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 10
 --- !u!136 &1967924099
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -623,7 +623,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: a64dde275f45a7e44bab677442ab0623, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -668,6 +668,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1967924103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967924097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33fdcb354bf4764a175ccc0c8851a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _hoverColor: {r: 1, g: 0.9967267, b: 0.5896226, a: 1}
+  _selectedColor: {r: 0.7028302, g: 0.94000214, b: 1, a: 1}
 --- !u!1 &2044908036
 GameObject:
   m_ObjectHideFlags: 0
