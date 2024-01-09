@@ -42,6 +42,7 @@ namespace Patterns.Strategy.Move_Me.Core
         private void DeselectUnit()
         {
             _selectedUnit.Deselect();
+            _selectedUnit = null;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void SendCommandMove(Vector3 point)

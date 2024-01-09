@@ -21,12 +21,12 @@ namespace Patterns.Strategy.Move_Me.Units
         //---------------------------------------------------------------------------------------------------------------
         private void OnMouseOver()
         {
-            _objectColorProvider.SetObjectColor(SelectedColor.Default);
+            _objectColorProvider.SetObjectColor(SelectedColor.Hover);
         }
         //---------------------------------------------------------------------------------------------------------------
         private void OnMouseExit()
         {
-            _objectColorProvider.SetObjectColor(SelectedColor.Hover);
+            _objectColorProvider.SetObjectColor(SelectedColor.Default);
         }
         //---------------------------------------------------------------------------------------------------------------
         protected void SetCommands(string[] cmd)
@@ -42,7 +42,7 @@ namespace Patterns.Strategy.Move_Me.Units
         //---------------------------------------------------------------------------------------------------------------
         public void Deselect()
         {
-            _objectColorProvider.SetObjectColor(SelectedColor.Default);
+            _objectColorProvider.Deselect();
         }
         //---------------------------------------------------------------------------------------------------------------
     }
