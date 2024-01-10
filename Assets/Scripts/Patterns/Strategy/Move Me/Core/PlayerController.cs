@@ -1,4 +1,4 @@
-﻿using Patterns.Strategy.Move_Me.Behaviours;
+﻿using System.Linq;
 using Patterns.Strategy.Move_Me.Units;
 using UnityEngine;
 
@@ -6,7 +6,6 @@ namespace Patterns.Strategy.Move_Me.Core
 {
     public class PlayerController : MonoBehaviour
     {
-        private string[] _commands;
         private UnitSelectable _selectedUnit;
         private PlayerInputService _playerInputService;
         //---------------------------------------------------------------------------------------------------------------
@@ -14,7 +13,7 @@ namespace Patterns.Strategy.Move_Me.Core
         {
             _playerInputService.OnMove += SendCommandMove;
             _playerInputService.OnPatrol += SendCommandPatrol;
-            _playerInputService.OnFollow += SendCommandFollow;
+            _playerInputService.OnFollow += GetSelectedTarget;
             UnitSignalsService.OnUnitSelected += GetSelectedUnit;
             UnitSignalsService.OnUnitDeselected += DeselectUnit;
         }
@@ -23,7 +22,7 @@ namespace Patterns.Strategy.Move_Me.Core
         {
             _playerInputService.OnMove -= SendCommandMove;
             _playerInputService.OnPatrol -= SendCommandPatrol;
-            _playerInputService.OnFollow -= SendCommandFollow;
+            _playerInputService.OnFollow -= GetSelectedTarget;
             UnitSignalsService.OnUnitSelected -= GetSelectedUnit;
             UnitSignalsService.OnUnitDeselected -= DeselectUnit;
         }
@@ -33,10 +32,20 @@ namespace Patterns.Strategy.Move_Me.Core
             _playerInputService = GetComponent<PlayerInputService>();
         }
         //---------------------------------------------------------------------------------------------------------------
-        private void GetSelectedUnit(UnitSelectable unit, string[] commands)
+        private void GetSelectedUnit(UnitSelectable unit)
         {
-            _commands = commands;
+            if (_selectedUnit != null)
+            {
+                DeselectUnit();
+            }
             _selectedUnit = unit;
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void GetSelectedTarget(UnitSelectable unit)
+        {
+            if(unit == null || unit == _selectedUnit) return;
+            
+            SendCommandFollow(unit.transform);
         }
         //---------------------------------------------------------------------------------------------------------------
         private void DeselectUnit()
@@ -48,39 +57,25 @@ namespace Patterns.Strategy.Move_Me.Core
         private void SendCommandMove(Vector3 point)
         {
             if(_selectedUnit == null) return;
-            
-            foreach (var command in _commands)
+
+            if (_selectedUnit.Commands.Keys.Contains("move"))
             {
-                if (command == "move")
-                {
-                    _selectedUnit.SetMoveBehaviour(new MoveToPoint(point));
-                }
+                _selectedUnit.pointToMove = point;
+                _selectedUnit.Commands["move"].Invoke();
             }
         }
         //---------------------------------------------------------------------------------------------------------------
         private void SendCommandPatrol()
         {
             if(_selectedUnit == null) return;
-            
-            foreach (var command in _commands)
-            {
-                if (command == "patrol")
-                {
-                    _selectedUnit.SetMoveBehaviour(new Patrol());
-                }
-            }
         }
         //---------------------------------------------------------------------------------------------------------------
-        private void SendCommandFollow()
+        private void SendCommandFollow(Transform t)
         {
-            if(_selectedUnit == null) return;
-            
-            foreach (var command in _commands)
+            if (_selectedUnit.Commands.Keys.Contains("follow"))
             {
-                if (command == "follow")
-                {
-                    _selectedUnit.SetMoveBehaviour(new Follow());
-                }
+                _selectedUnit.target = t;
+                _selectedUnit.Commands["follow"].Invoke();
             }
         }
         //---------------------------------------------------------------------------------------------------------------

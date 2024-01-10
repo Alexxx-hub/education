@@ -10,25 +10,15 @@ namespace Patterns.Strategy.Move_Me.Units
         protected bool _hasCommandMove;
         protected IMove _moveBehaviour;
         //---------------------------------------------------------------------------------------------------------------
-        public void SetMoveBehaviour(IMove moveBehaviour)
+        protected void SetMoveBehaviour(IMove moveBehaviour)
         {
             _moveBehaviour = moveBehaviour;
             _hasCommandMove = true;
         }
         //---------------------------------------------------------------------------------------------------------------
-        protected void SetPatrolBehaviour(IMove moveBehaviour)
+        protected void Move()
         {
-            _moveBehaviour = moveBehaviour;
-        }
-        //---------------------------------------------------------------------------------------------------------------
-        protected void Move(Transform transform, float speed)
-        {
-            _moveBehaviour.Move(transform, speed);
-        }
-        //---------------------------------------------------------------------------------------------------------------
-        protected void Patrol(Transform transform, float speed)
-        {
-            _moveBehaviour.Move(transform, speed);
+            _moveBehaviour.Move();
         }
         //---------------------------------------------------------------------------------------------------------------
     }

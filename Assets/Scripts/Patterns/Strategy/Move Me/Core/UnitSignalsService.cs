@@ -5,12 +5,12 @@ namespace Patterns.Strategy.Move_Me.Core
 {
     public static class UnitSignalsService
     {
-        public static event Action<UnitSelectable, string[]> OnUnitSelected;
+        public static event Action<UnitSelectable> OnUnitSelected;
         public static event Action OnUnitDeselected;
         //---------------------------------------------------------------------------------------------------------------
-        public static void SendSelectedUnit(UnitSelectable unit, string[] commands)
+        public static void SendSelectedUnit(UnitSelectable unit)
         {
-            OnUnitSelected?.Invoke(unit, commands);
+            OnUnitSelected?.Invoke(unit);
         }
         //---------------------------------------------------------------------------------------------------------------
         public static void DeselectUnit()

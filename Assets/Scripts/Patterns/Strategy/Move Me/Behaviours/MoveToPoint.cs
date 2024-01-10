@@ -5,23 +5,28 @@ namespace Patterns.Strategy.Move_Me.Behaviours
 {
     public class MoveToPoint : IMove
     {
-        private Vector3 _targetPoint;
+        public Vector3 targetPoint;
+        
+        private float _speed;
+        private Transform _uniTransform;
         //---------------------------------------------------------------------------------------------------------------
-        public MoveToPoint(Vector3 v)
+        public MoveToPoint(Transform unit, Vector3 target, float speed)
         {
-            _targetPoint = v;
+            _speed = speed;
+            targetPoint = target;
+            _uniTransform = unit;
         }
         //---------------------------------------------------------------------------------------------------------------
-        public void Move(Transform transform, float speed)
+        public void Move()
         {
-            float playerDistanceToFloor = transform.position.y - _targetPoint.y;
-            _targetPoint.y += playerDistanceToFloor;
+            float playerDistanceToFloor = _uniTransform.position.y - targetPoint.y;
+            targetPoint.y += playerDistanceToFloor;
             
             // move to point;
-            if (Vector3.Distance(transform.position, _targetPoint) > 0.1f)
-            { 
+            if (Vector3.Distance(_uniTransform.position, targetPoint) > 0.1f)
+            {
                 //transform.Translate(_targetPoint * Time.deltaTime * speed);
-                transform.position =  Vector3.MoveTowards(transform.position, _targetPoint, speed * Time.deltaTime);
+                _uniTransform.position =  Vector3.MoveTowards(_uniTransform.position, targetPoint, _speed * Time.deltaTime);
             }
         }
         //---------------------------------------------------------------------------------------------------------------

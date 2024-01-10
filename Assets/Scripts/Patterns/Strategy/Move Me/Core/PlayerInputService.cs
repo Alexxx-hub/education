@@ -1,4 +1,5 @@
 ﻿using System;
+using Patterns.Strategy.Move_Me.Units;
 using UnityEngine;
 using ISelectable = Patterns.Strategy.Move_Me.Interfaces.ISelectable;
 
@@ -8,8 +9,8 @@ namespace Patterns.Strategy.Move_Me.Core
     {
         public event Action<Vector3> OnMove;
         public event Action OnPatrol;
-        public event Action OnFollow;
-        
+        public event Action<UnitSelectable> OnFollow;
+
         private MoveCommands _currentCommand;
 
         public MoveCommands CurrentCommand => _currentCommand;
@@ -35,7 +36,7 @@ namespace Patterns.Strategy.Move_Me.Core
                         OnPatrol?.Invoke();
                         break;
                     case MoveCommands.Follow:
-                        OnFollow?.Invoke();
+                        OnFollow?.Invoke(GetTarget());
                         break;
                     default: OnMove?.Invoke(GetMovePoint());   
                         break;
@@ -62,6 +63,24 @@ namespace Patterns.Strategy.Move_Me.Core
             }
         }
         //---------------------------------------------------------------------------------------------------------------
+        private UnitSelectable GetTarget()
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                ISelectable unit = hit.collider.GetComponent<ISelectable>();
+
+                if (unit != null)
+                {
+                    return unit as UnitSelectable;
+                }
+            }
+
+            return null;
+        }
+        //---------------------------------------------------------------------------------------------------------------
         private void Deselect()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -75,14 +94,17 @@ namespace Patterns.Strategy.Move_Me.Core
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 _currentCommand = MoveCommands.Move;
+                Debug.Log("Current command: MOVE");
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
                 _currentCommand = MoveCommands.Patrol;
+                Debug.Log("Current command: PATROL");
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 _currentCommand = MoveCommands.Follow;
+                Debug.Log("Current command: FOLLOW");
             }
         }
         //---------------------------------------------------------------------------------------------------------------
