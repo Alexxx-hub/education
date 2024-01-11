@@ -34,7 +34,7 @@ namespace Patterns.Strategy.Move_Me.Units
             {
                 MoveToPoint moveToPoint = _moveBehaviour as MoveToPoint;
                 moveToPoint.targetPoint = pointToMove;
-                Debug.Log("Updated");
+                Debug.Log("Update point");
                 return;
             }
             SetMoveBehaviour(new MoveToPoint(transform, pointToMove, _speed));
@@ -47,6 +47,7 @@ namespace Patterns.Strategy.Move_Me.Units
             {
                 Follow moveToPoint = _moveBehaviour as Follow;
                 moveToPoint.target = target;
+                Debug.Log("Update target");
                 return;
             }
             SetMoveBehaviour(new Follow(transform, target, _speed));
@@ -57,9 +58,12 @@ namespace Patterns.Strategy.Move_Me.Units
         {
             if (_currentCommand == MoveCommands.Patrol)
             {
+                Patrol moveToPoint = _moveBehaviour as Patrol;
+                moveToPoint.Path = path;
+                Debug.Log("Update path");
                 return;
             }
-            SetMoveBehaviour(new Patrol(transform, ));
+            SetMoveBehaviour(new Patrol(transform, path, _speed));
             _currentCommand = MoveCommands.Patrol;
         }
         //---------------------------------------------------------------------------------------------------------------

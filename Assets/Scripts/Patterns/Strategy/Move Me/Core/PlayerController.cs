@@ -65,13 +65,21 @@ namespace Patterns.Strategy.Move_Me.Core
             }
         }
         //---------------------------------------------------------------------------------------------------------------
-        private void SendCommandPatrol()
+        private void SendCommandPatrol(Vector3[] path)
         {
             if(_selectedUnit == null) return;
+            
+            if (_selectedUnit.Commands.Keys.Contains("patrol"))
+            {
+                _selectedUnit.path = path;
+                _selectedUnit.Commands["patrol"].Invoke();
+            }
         }
         //---------------------------------------------------------------------------------------------------------------
         private void SendCommandFollow(Transform t)
         {
+            if(_selectedUnit == null) return;
+            
             if (_selectedUnit.Commands.Keys.Contains("follow"))
             {
                 _selectedUnit.target = t;

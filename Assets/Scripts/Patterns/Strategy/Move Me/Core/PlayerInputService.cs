@@ -8,22 +8,35 @@ namespace Patterns.Strategy.Move_Me.Core
     public class PlayerInputService : MonoBehaviour
     {
         public event Action<Vector3> OnMove;
-        public event Action OnPatrol;
+        public event Action<Vector3[]> OnPatrol;
         public event Action<UnitSelectable> OnFollow;
-
+        
+        private int _currentPathPoint;
+        private Vector3[] _path;
         private MoveCommands _currentCommand;
 
         public MoveCommands CurrentCommand => _currentCommand;
+        //---------------------------------------------------------------------------------------------------------------
+        private void Start()
+        {
+            _path = new Vector3[5];
+            ResetPath();
+        }
         //---------------------------------------------------------------------------------------------------------------
         private void Update()
         {
             Select();
             Deselect();
             SwitchBehaviour();
-            Move();
+            MoveTo();
+
+            if (_currentCommand == MoveCommands.Patrol && Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                GetPath();
+            }
         }
         //---------------------------------------------------------------------------------------------------------------
-        private void Move()
+        private void MoveTo()
         {
             if (Input.GetMouseButtonDown(1))
             {
@@ -33,7 +46,7 @@ namespace Patterns.Strategy.Move_Me.Core
                         OnMove?.Invoke(GetMovePoint());
                         break;
                     case MoveCommands.Patrol:
-                        OnPatrol?.Invoke();
+                        BuildPath();
                         break;
                     case MoveCommands.Follow:
                         OnFollow?.Invoke(GetTarget());
@@ -108,6 +121,23 @@ namespace Patterns.Strategy.Move_Me.Core
             }
         }
         //---------------------------------------------------------------------------------------------------------------
+        private void BuildPath()
+        {
+            if (Input.GetKey(KeyCode.LeftShift) && _path[^1] == Vector3.zero)
+            {
+                _path[_currentPathPoint++] = GetMovePoint();
+            }
+            else
+            {
+                if (_path[0] == Vector3.zero)
+                {
+                    return;
+                }
+                
+                GetPath();
+            }
+        }
+        //---------------------------------------------------------------------------------------------------------------
         private Vector3 GetMovePoint()
         {
             RaycastHit hit;
@@ -119,6 +149,33 @@ namespace Patterns.Strategy.Move_Me.Core
             }
             
             return Vector3.zero;
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void GetPath()
+        {
+            if (_path[0] == Vector3.zero)
+            {
+                return;
+            }
+            
+            Vector3[] path = new Vector3[_currentPathPoint];
+                
+            for (int i = 0; i < path.Length; i++)
+            {
+                path[i] = _path[i];
+            }
+            
+            OnPatrol?.Invoke(path);
+            ResetPath();
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void ResetPath()
+        {
+            for (int i = 0; i < _path.Length; i++)
+            {
+                _path[i] = Vector3.zero;
+            }
+            _currentPathPoint = 0;
         }
         //---------------------------------------------------------------------------------------------------------------
     }
