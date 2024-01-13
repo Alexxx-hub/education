@@ -56,7 +56,7 @@ namespace Patterns.Strategy.Move_Me.Core
         //---------------------------------------------------------------------------------------------------------------
         private void SendCommandMove(Vector3 point)
         {
-            if(_selectedUnit == null) return;
+            if(_selectedUnit == null || point == -Vector3.one) return;
 
             if (_selectedUnit.Commands.Keys.Contains("move"))
             {

@@ -1,30 +1,68 @@
-﻿using Patterns.Strategy.Move_Me.Interfaces;
+﻿using System;
+using Patterns.Strategy.Move_Me.Interfaces;
 using UnityEngine;
 
 namespace Patterns.Strategy.Move_Me.Behaviours
 {
     public class Follow : IMove
     {
-        public Transform target;
-        
+        public event Action onFinishMovement;
+        public event Action onResumeMovement;
+
+        private bool _isResumed;
         private float _speed;
-        private Transform _unit;
+        private Vector3 _targetNormalizedPosition;
+        private Transform _target;
+        private Transform _uniTransform;
+
+        public Transform Target
+        {
+            set => _target = value;
+        }
         //---------------------------------------------------------------------------------------------------------------
-        public Follow(Transform unit, Transform target, float speed)
+        public Follow(Transform uniTransform, Transform target, float speed)
         {
             _speed = speed;
-            this.target = target;
-            _unit = unit;
+            _target = target;
+            _uniTransform = uniTransform;
+            _isResumed = true;
         }
         //---------------------------------------------------------------------------------------------------------------
         public void Move()
         {
+            Vector3 unitPosition = _uniTransform.position;
+
+            RotateToDirection(NormalizeTargetPosition(_target.position));
+            
             // move to point;
-            if (Vector3.Distance(_unit.position, target.position) > 0.65f)
+            if (Vector3.Distance(unitPosition, _target.position) > .5f)
             {
-                //transform.Translate(_targetPoint * Time.deltaTime * speed);
-                _unit.position =  Vector3.MoveTowards(_unit.position, target.position, _speed * Time.deltaTime);
+                _uniTransform.position =  Vector3.MoveTowards(unitPosition, _target.position, _speed * Time.deltaTime);
+                
+                if (!_isResumed)
+                {
+                    _isResumed = true;
+                    onResumeMovement?.Invoke();
+                }
             }
+            else
+            {
+                onFinishMovement?.Invoke();
+                _isResumed = false;
+            }
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void RotateToDirection( Vector3 unitPosition)
+        {
+            _uniTransform.LookAt(unitPosition);
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private Vector3 NormalizeTargetPosition(Vector3 unitPosition)
+        {
+            float playerDistanceToFloor = unitPosition.y - _target.position.y;
+            _targetNormalizedPosition =
+                new Vector3(unitPosition.x, unitPosition.y + playerDistanceToFloor, unitPosition.z);
+            return _targetNormalizedPosition;
         }
         //---------------------------------------------------------------------------------------------------------------
     }

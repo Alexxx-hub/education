@@ -15,10 +15,10 @@ namespace Patterns.Strategy.Move_Me.Core
     {
         private Color[] _colors;
         private bool _isSelected;
-        private MeshRenderer _meshRenderer;
+        private SkinnedMeshRenderer _meshRenderer;
         private MaterialPropertyBlock _materialPropertyBlock;
         //---------------------------------------------------------------------------------------------------------------
-        public ObjectColorProvider(MeshRenderer meshRenderer, Color[] colors)
+        public ObjectColorProvider(SkinnedMeshRenderer meshRenderer, Color[] colors)
         {
             _materialPropertyBlock = new MaterialPropertyBlock();
             _meshRenderer = meshRenderer;

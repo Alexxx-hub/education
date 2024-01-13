@@ -1,23 +1,49 @@
 ﻿using Patterns.Strategy.Move_Me.Behaviours;
 using System;
 using System.Collections.Generic;
-using Patterns.Strategy.Move_Me.Core;
 using UnityEngine;
 
 namespace Patterns.Strategy.Move_Me.Units
 {
     public class Human : UnitSelectable
     {
+        private Animator _animator;
+
+        private MoveToPoint _moveToPointBehaviour;
+        private Follow _followBehaviour;
+        private Patrol _patrolBehaviour;
+        //---------------------------------------------------------------------------------------------------------------
+        private void OnEnable()
+        {
+            _moveBehaviour.onFinishMovement += WaitCommandState;
+            _followBehaviour.onResumeMovement += ResumeMovement;
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void OnDisable()
+        {
+            _moveBehaviour.onFinishMovement -= WaitCommandState;
+            _followBehaviour.onResumeMovement -= ResumeMovement;
+        }
         //---------------------------------------------------------------------------------------------------------------
         protected override void Awake()
         {
             base.Awake();
+            
+            Transform unitTransform = transform;
+            _moveToPointBehaviour = new MoveToPoint(unitTransform, pointToMove, _speed);
+            _followBehaviour = new Follow(unitTransform, target, _speed);
+            _patrolBehaviour = new Patrol(unitTransform, path, _speed);
+            
+            SetMoveBehaviour(_moveToPointBehaviour);
+            _hasCommandMove = false;
+            
             _commands = new Dictionary<string, Action>()
             {
                 {"move", MoveToPoint},
                 {"follow", Follow},
                 {"patrol", Patrol}
             };
+            _animator = GetComponent<Animator>();
         }
         //---------------------------------------------------------------------------------------------------------------
         private void Update()
@@ -30,41 +56,38 @@ namespace Patterns.Strategy.Move_Me.Units
         //---------------------------------------------------------------------------------------------------------------
         private void MoveToPoint()
         {
-            if (_currentCommand == MoveCommands.Move)
-            {
-                MoveToPoint moveToPoint = _moveBehaviour as MoveToPoint;
-                moveToPoint.targetPoint = pointToMove;
-                Debug.Log("Update point");
-                return;
-            }
-            SetMoveBehaviour(new MoveToPoint(transform, pointToMove, _speed));
-            _currentCommand = MoveCommands.Move;
+            _moveBehaviour.onFinishMovement -= WaitCommandState;
+            _moveToPointBehaviour.TargetPoint = pointToMove;
+            SetMoveBehaviour(_moveToPointBehaviour);
+            _moveBehaviour.onFinishMovement += WaitCommandState;
+            _animator.SetInteger("state", 1);
         }
         //---------------------------------------------------------------------------------------------------------------
         private void Follow()
         {
-            if (_currentCommand == MoveCommands.Follow)
-            {
-                Follow moveToPoint = _moveBehaviour as Follow;
-                moveToPoint.target = target;
-                Debug.Log("Update target");
-                return;
-            }
-            SetMoveBehaviour(new Follow(transform, target, _speed));
-            _currentCommand = MoveCommands.Follow;
+            _moveBehaviour.onFinishMovement -= WaitCommandState;
+            _followBehaviour.Target = target;
+            SetMoveBehaviour(_followBehaviour);
+            _moveBehaviour.onFinishMovement += WaitCommandState;
+
+            _animator.SetInteger("state", 1);
         }
         //---------------------------------------------------------------------------------------------------------------
         private void Patrol()
         {
-            if (_currentCommand == MoveCommands.Patrol)
-            {
-                Patrol moveToPoint = _moveBehaviour as Patrol;
-                moveToPoint.Path = path;
-                Debug.Log("Update path");
-                return;
-            }
-            SetMoveBehaviour(new Patrol(transform, path, _speed));
-            _currentCommand = MoveCommands.Patrol;
+            _patrolBehaviour.Path = path;
+            SetMoveBehaviour(_patrolBehaviour);
+            _animator.SetInteger("state", 1);
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void WaitCommandState()
+        {
+            _animator.SetInteger("state", 0);
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void ResumeMovement()
+        {
+            _animator.SetInteger("state", 1);
         }
         //---------------------------------------------------------------------------------------------------------------
     }

@@ -148,7 +148,7 @@ namespace Patterns.Strategy.Move_Me.Core
                 return hit.point;
             }
             
-            return Vector3.zero;
+            return -Vector3.one;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void GetPath()

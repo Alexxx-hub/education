@@ -8,15 +8,15 @@ namespace Patterns.Strategy.Move_Me.Units
 {
     public abstract class UnitSelectable : UnitBase, ISelectable
     {
-        public Vector3 pointToMove;
-        public Vector3[] path;
-        public Transform target;
+        [HideInInspector] public Vector3 pointToMove;
+        [HideInInspector] public Vector3[] path;
+        [HideInInspector] public Transform target;
         
         [SerializeField] private Color _defaultColor;
         [SerializeField] private Color _hoverColor;
         [SerializeField] private Color _selectedColor;
 
-        protected MoveCommands _currentCommand;
+        //protected MoveCommands _currentCommand;
         protected Dictionary<string, Action> _commands; 
         private ObjectColorProvider _objectColorProvider;
 
@@ -25,8 +25,8 @@ namespace Patterns.Strategy.Move_Me.Units
         protected virtual void Awake()
         {
             Color[] colors = {_defaultColor, _hoverColor, _selectedColor};
-            _currentCommand = MoveCommands.None;
-            _objectColorProvider = new ObjectColorProvider(GetComponent<MeshRenderer>(), colors);
+            //_currentCommand = MoveCommands.None;
+            _objectColorProvider = new ObjectColorProvider(GetComponentInChildren<SkinnedMeshRenderer>(), colors);
         }
         //---------------------------------------------------------------------------------------------------------------
         private void OnMouseOver()
