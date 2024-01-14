@@ -2,7 +2,6 @@
 {
     public enum MoveCommands
     {
-        None,
         Move,
         Patrol,
         Follow

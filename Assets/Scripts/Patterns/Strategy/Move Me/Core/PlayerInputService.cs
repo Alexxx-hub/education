@@ -10,6 +10,7 @@ namespace Patterns.Strategy.Move_Me.Core
         public event Action<Vector3> OnMove;
         public event Action<Vector3[]> OnPatrol;
         public event Action<UnitSelectable> OnFollow;
+        public event Action<int> onCommand;
         
         private int _currentPathPoint;
         private Vector3[] _path;
@@ -107,17 +108,17 @@ namespace Patterns.Strategy.Move_Me.Core
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 _currentCommand = MoveCommands.Move;
-                Debug.Log("Current command: MOVE");
+                onCommand?.Invoke((int)_currentCommand);
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
                 _currentCommand = MoveCommands.Patrol;
-                Debug.Log("Current command: PATROL");
+                onCommand?.Invoke((int)_currentCommand);
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 _currentCommand = MoveCommands.Follow;
-                Debug.Log("Current command: FOLLOW");
+                onCommand?.Invoke((int)_currentCommand);
             }
         }
         //---------------------------------------------------------------------------------------------------------------

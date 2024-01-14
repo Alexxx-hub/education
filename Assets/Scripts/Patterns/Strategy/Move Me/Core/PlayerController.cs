@@ -6,6 +6,8 @@ namespace Patterns.Strategy.Move_Me.Core
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] private GameObject _selectionCircle;
+        
         private UnitSelectable _selectedUnit;
         private PlayerInputService _playerInputService;
         //---------------------------------------------------------------------------------------------------------------
@@ -30,6 +32,7 @@ namespace Patterns.Strategy.Move_Me.Core
         private void Awake()
         {
             _playerInputService = GetComponent<PlayerInputService>();
+            _selectionCircle.SetActive(false);
         }
         //---------------------------------------------------------------------------------------------------------------
         private void GetSelectedUnit(UnitSelectable unit)
@@ -39,6 +42,7 @@ namespace Patterns.Strategy.Move_Me.Core
                 DeselectUnit();
             }
             _selectedUnit = unit;
+            SetSelectionCircle(unit.transform);
         }
         //---------------------------------------------------------------------------------------------------------------
         private void GetSelectedTarget(UnitSelectable unit)
@@ -52,6 +56,7 @@ namespace Patterns.Strategy.Move_Me.Core
         {
             _selectedUnit.Deselect();
             _selectedUnit = null;
+            HideSelectionCircle();
         }
         //---------------------------------------------------------------------------------------------------------------
         private void SendCommandMove(Vector3 point)
@@ -85,6 +90,18 @@ namespace Patterns.Strategy.Move_Me.Core
                 _selectedUnit.target = t;
                 _selectedUnit.Commands["follow"].Invoke();
             }
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void SetSelectionCircle(Transform target)
+        {
+            _selectionCircle.transform.parent = target.transform;
+            _selectionCircle.transform.localPosition = Vector3.zero;
+            _selectionCircle.SetActive(true);
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void HideSelectionCircle()
+        {
+            _selectionCircle.SetActive(false);
         }
         //---------------------------------------------------------------------------------------------------------------
     }
