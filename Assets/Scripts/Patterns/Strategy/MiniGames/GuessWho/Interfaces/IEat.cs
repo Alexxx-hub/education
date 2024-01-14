@@ -1,4 +1,4 @@
-﻿namespace Patterns.Strategy.Interfaces
+﻿namespace Patterns.Strategy.MiniGames.GuessWho.Interfaces
 {
     public interface IEat
     {

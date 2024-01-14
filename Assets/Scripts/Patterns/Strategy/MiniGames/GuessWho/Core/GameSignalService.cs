@@ -1,8 +1,7 @@
 ﻿using System;
-using Patterns.Strategy.Animals;
-using UnityEngine.UI;
+using Patterns.Strategy.MiniGames.GuessWho.Animals;
 
-namespace Patterns.Strategy.MiniGames.GuessWho
+namespace Patterns.Strategy.MiniGames.GuessWho.Core
 {
     public static class GameSignalService
     {

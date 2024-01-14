@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using Patterns.Strategy.Animals;
+using Patterns.Strategy.MiniGames.GuessWho.Animals;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Patterns.Strategy.MiniGames.GuessWho
+namespace Patterns.Strategy.MiniGames.GuessWho.Core
 {
     public class PanelService : MonoBehaviour
     {
@@ -41,7 +41,8 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         }
         //---------------------------------------------------------------------------------------------------------------
         private void SetCurrentAnimal(AnimalBase animal)
-        {
+        { // get selected animal
+            
             _textField.text = "";
             _selectedAnimal = animal;
         }
@@ -50,9 +51,11 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         {
             if(_selectedAnimal != null)
             {
+                // check animal ability to walk
                 if (_selectedAnimal.Behaviour.Keys.Contains("walk"))
                 {
                     _selectedAnimal.Behaviour["walk"].Invoke();
+                    // show in text field current animal behaviour
                     _textField.text = _selectedAnimal.CurrentBehaviour;
                 }
                 else

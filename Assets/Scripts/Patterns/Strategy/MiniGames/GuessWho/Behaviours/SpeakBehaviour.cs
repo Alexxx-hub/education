@@ -1,19 +1,22 @@
-﻿using Patterns.Strategy.Interfaces;
+﻿using Patterns.Strategy.MiniGames.GuessWho.Interfaces;
+using UnityEngine;
 
-namespace Patterns.Strategy.Behaviours
+namespace Patterns.Strategy.MiniGames.GuessWho.Behaviours
 {
-    public class WalkBehaviour : IWalk
+    public class SpeakBehaviour : ISpeak
     {
-        private string _text;
+        private string[] _text;
         //---------------------------------------------------------------------------------------------------------------
-        public WalkBehaviour(string text)
+        public SpeakBehaviour(string[] text)
         {
             _text = text;
         }
         //---------------------------------------------------------------------------------------------------------------
-        public string Walk()
+        public string Speak()
         {
-            return _text;
+            string text = _text[Random.Range(0, _text.Length)];
+
+            return "I'm say: " + text;
         }
         //---------------------------------------------------------------------------------------------------------------
     }

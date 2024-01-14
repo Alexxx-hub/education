@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Patterns.Strategy.MiniGames.GuessWho
+namespace Patterns.Strategy.MiniGames.GuessWho.Core
 {
     public class CloseApplicationButton : MonoBehaviour
     {

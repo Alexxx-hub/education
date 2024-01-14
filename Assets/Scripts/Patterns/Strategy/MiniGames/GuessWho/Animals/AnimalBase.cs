@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Patterns.Strategy.Interfaces;
+using Patterns.Strategy.MiniGames.GuessWho.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Patterns.Strategy.Animals
+namespace Patterns.Strategy.MiniGames.GuessWho.Animals
 {
     public abstract class AnimalBase : MonoBehaviour
     {
@@ -15,7 +15,6 @@ namespace Patterns.Strategy.Animals
 
         protected Button _button;
         
-        public Button Button => _button;
         public Dictionary<string, Action> Behaviour { get; protected set; }
         public string CurrentBehaviour { get; private set; }
         //---------------------------------------------------------------------------------------------------------------

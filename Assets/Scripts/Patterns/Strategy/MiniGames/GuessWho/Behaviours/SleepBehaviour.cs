@@ -1,6 +1,6 @@
-﻿using Patterns.Strategy.Interfaces;
+﻿using Patterns.Strategy.MiniGames.GuessWho.Interfaces;
 
-namespace Patterns.Strategy.Behaviours
+namespace Patterns.Strategy.MiniGames.GuessWho.Behaviours
 {
     public class SleepBehaviour : ISleep
     {

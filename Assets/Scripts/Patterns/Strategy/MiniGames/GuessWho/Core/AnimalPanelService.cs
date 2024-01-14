@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Patterns.Strategy.MiniGames.GuessWho
+namespace Patterns.Strategy.MiniGames.GuessWho.Core
 {
     public class AnimalPanelService : MonoBehaviour
     {
@@ -58,20 +58,22 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         }
         //---------------------------------------------------------------------------------------------------------------
         private void SelectButton(int id)
-        {
+        { // change color for selected button and reset color for previous one
+            
+            // reset color for previous
             if(_animalButton != null)
             {
                 _animalButton.colors = _ColorBlock;
                 _selectedButtonTextField.color = _textColorBase;
             }
-
-            Button selectedButton = _buttons[id];
-
+            
+            // get new selected button
             _selectedButtonTextField = _buttonsTextFields[id];
-            _animalButton = selectedButton;
+            _animalButton = _buttons[id];;
 
             ColorBlock colorBlock = _ColorBlock;
             
+            // choose color to mark selected button
             if (_hiddenAnimalId == id)
             {
                 colorBlock.normalColor = _selectedButtonColorCorrect;
@@ -90,7 +92,8 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         }
         //---------------------------------------------------------------------------------------------------------------
         private void ResetButton()
-        {
+        { // reset color for selected button
+            
             if(_animalButton != null)
             {
                 _animalButton.colors = _ColorBlock;

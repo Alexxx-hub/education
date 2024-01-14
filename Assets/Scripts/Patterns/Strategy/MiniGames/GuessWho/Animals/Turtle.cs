@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Patterns.Strategy.Behaviours;
-using Patterns.Strategy.MiniGames.GuessWho;
+using Patterns.Strategy.MiniGames.GuessWho.Behaviours;
+using Patterns.Strategy.MiniGames.GuessWho.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Patterns.Strategy.Animals
+namespace Patterns.Strategy.MiniGames.GuessWho.Animals
 {
-    public class Ant : AnimalBase
+    public class Turtle : AnimalBase
     {
         [SerializeField] private string _food;
         [SerializeField] private string _walk;

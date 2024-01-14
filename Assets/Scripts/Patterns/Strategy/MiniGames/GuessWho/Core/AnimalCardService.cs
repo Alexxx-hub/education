@@ -3,10 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-namespace Patterns.Strategy.MiniGames.GuessWho
+namespace Patterns.Strategy.MiniGames.GuessWho.Core
 {
     public class AnimalCardService : MonoBehaviour
     {
+        // set parameters for animation
         [SerializeField] private float _fadeTime;
         [SerializeField] private float _shakeTime;
         
@@ -36,15 +37,20 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         //---------------------------------------------------------------------------------------------------------------
         private void ResetAnimalCard()
         {
+            // show default card image
             _animalImage.sprite = _defaultSprite;
             _uiAnimator.Show(_animalImage, _fadeTime);
         }
         //---------------------------------------------------------------------------------------------------------------
         private void ShowCard()
         {
+            // select random card id
             int id = Random.Range(0, _animalSprites.Length);
+            
             _animalImage.sprite = _animalSprites[id];
             _uiAnimator.Show(_animalImage, _fadeTime);
+            
+            // user can select random card again
             _shakeButton.interactable = true;
             GameSignalService.SendHiddenAnimal(id);
         }
@@ -52,6 +58,8 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         private void HideCard()
         {
             if(_animalImage.sprite == _defaultSprite) return;
+            
+            // set time to hide animation
             float time = _fadeTime / 4;
             _uiAnimator.Hide(_animalImage, time);
             Invoke(nameof(ResetAnimalCard), time);
@@ -59,9 +67,12 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         //---------------------------------------------------------------------------------------------------------------
         private async void SetSprite()
         {
+            // return default card image before shaking
             HideCard();
             _shakeButton.interactable = false;
             GameSignalService.ShakeCards();
+            
+            // play animation of choosing random card
             await ShakeDice();
             _uiAnimator.Hide(_animalImage, _fadeTime);
             Invoke(nameof(ShowCard), _fadeTime);
@@ -70,6 +81,8 @@ namespace Patterns.Strategy.MiniGames.GuessWho
         private async Task ShakeDice()
         {
             _uiAnimator.Shake(_shakeButton.transform, _shakeTime);
+            
+            // set time for shaking in ms
             await Task.Delay(Mathf.RoundToInt(_shakeTime * 1000));
         }
         //---------------------------------------------------------------------------------------------------------------
