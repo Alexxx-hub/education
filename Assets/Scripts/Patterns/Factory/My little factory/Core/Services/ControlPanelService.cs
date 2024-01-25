@@ -1,5 +1,6 @@
 ﻿using System;
 using Patterns.Factory.My_little_factory.Factory;
+using Patterns.Factory.My_little_factory.Factory.FurnitureFactory;
 using UnityEngine.UI;
 
 namespace Patterns.Factory.My_little_factory.Core.Services

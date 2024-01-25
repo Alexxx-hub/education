@@ -1,5 +1,6 @@
-﻿using Patterns.Factory.My_little_factory.Core.Services;
-using Patterns.Factory.My_little_factory.Factory;
+﻿using System.Collections.Generic;
+using Patterns.Factory.My_little_factory.Core.Services;
+using Patterns.Factory.My_little_factory.Factory.FurnitureFactory;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,8 @@ namespace Patterns.Factory.My_little_factory.Core
         [SerializeField] private Button _createChairButton;
         [SerializeField] private Button _createSofaButton;
         [SerializeField] private Button _createTableButton;
-        
+
+        private List<Furniture.Furniture> _producedFurnitures;
         private ControlPanelService _controlPanelService;
         //---------------------------------------------------------------------------------------------------------------
         private void OnEnable()
@@ -30,7 +32,7 @@ namespace Patterns.Factory.My_little_factory.Core
         //---------------------------------------------------------------------------------------------------------------
         private void CreateFurniture(FurnitureCreator furnitureCreator)
         {
-            furnitureCreator.CreateFurniture();
+            _producedFurnitures.Add(furnitureCreator.CreateFurniture());
         }
         //---------------------------------------------------------------------------------------------------------------
     }

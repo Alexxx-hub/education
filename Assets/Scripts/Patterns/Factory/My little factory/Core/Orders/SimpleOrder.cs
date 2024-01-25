@@ -19,10 +19,11 @@ namespace Patterns.Factory.My_little_factory.Core.Orders
             };
         }
         //---------------------------------------------------------------------------------------------------------------
-        public int FinishOrder(Dictionary<int, int> providedOrder)
+        public int FinishOrder(List<Furniture.Furniture> furnitures)
         {
             int price = 0;
 
+            
             return price;
         }
         //---------------------------------------------------------------------------------------------------------------

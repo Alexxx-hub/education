@@ -1,4 +1,4 @@
-﻿namespace Patterns.Factory.My_little_factory.Factory
+﻿namespace Patterns.Factory.My_little_factory.Factory.FurnitureFactory
 {
     public abstract class FurnitureCreator
     {

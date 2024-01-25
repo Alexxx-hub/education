@@ -1,4 +1,5 @@
-﻿using Patterns.Factory.My_little_factory.Furniture;
+﻿using Patterns.Factory.My_little_factory.Factory.FurnitureFactory;
+using Patterns.Factory.My_little_factory.Furniture;
 using UnityEngine;
 
 namespace Patterns.Factory.My_little_factory.Factory
