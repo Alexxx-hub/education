@@ -1,8 +1,7 @@
-﻿using Patterns.Factory.My_little_factory.Factory.FurnitureFactory;
-using Patterns.Factory.My_little_factory.Furniture;
+﻿using Patterns.Factory.My_little_factory.Furniture;
 using UnityEngine;
 
-namespace Patterns.Factory.My_little_factory.Factory
+namespace Patterns.Factory.My_little_factory.Factory.FurnitureFactory
 {
     public class ChairCreator : FurnitureCreator
     {
@@ -10,8 +9,8 @@ namespace Patterns.Factory.My_little_factory.Factory
         public override Furniture.Furniture CreateFurniture()
         {
             var prefab = Resources.Load<GameObject>("Prefabs/My little factory/Furniture/Chair");
-            var go = GameObject.Instantiate(prefab);
-            var component = go.AddComponent<Chair>();
+            var go = Object.Instantiate(prefab);
+            var component = go.GetComponent<Chair>();
 
             return component;
         }

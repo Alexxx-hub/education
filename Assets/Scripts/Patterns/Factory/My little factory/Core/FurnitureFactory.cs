@@ -1,38 +1,50 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Patterns.Factory.My_little_factory.Core.Services;
 using Patterns.Factory.My_little_factory.Factory.FurnitureFactory;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Patterns.Factory.My_little_factory.Core
 {
     public class FurnitureFactory : MonoBehaviour
-    { 
-        [SerializeField] private Button _createChairButton;
-        [SerializeField] private Button _createSofaButton;
-        [SerializeField] private Button _createTableButton;
-
+    {
+        public event Action<List<Furniture.Furniture>> OnFinishOrder;
+        
         private List<Furniture.Furniture> _producedFurnitures;
+        
         private ControlPanelService _controlPanelService;
+        //---------------------------------------------------------------------------------------------------------------
+        public void Construct(ControlPanelService controlPanelService)
+        {
+            _controlPanelService = controlPanelService;
+        }
         //---------------------------------------------------------------------------------------------------------------
         private void OnEnable()
         {
             _controlPanelService.OnFurnitureChoose += CreateFurniture;
+            _controlPanelService.OnFinishButtonDown += SendOrder;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void OnDisable()
         {
             _controlPanelService.OnFurnitureChoose -= CreateFurniture;
+            _controlPanelService.OnFinishButtonDown -= SendOrder;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void Awake()
         {
-            _controlPanelService = new ControlPanelService(_createChairButton, _createSofaButton, _createTableButton);
+            _producedFurnitures = new List<Furniture.Furniture>();
         }
         //---------------------------------------------------------------------------------------------------------------
         private void CreateFurniture(FurnitureCreator furnitureCreator)
         {
             _producedFurnitures.Add(furnitureCreator.CreateFurniture());
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void SendOrder()
+        {
+            OnFinishOrder?.Invoke(_producedFurnitures);
+            _producedFurnitures.Clear();
         }
         //---------------------------------------------------------------------------------------------------------------
     }

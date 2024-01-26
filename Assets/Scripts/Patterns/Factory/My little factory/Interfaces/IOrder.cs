@@ -4,6 +4,6 @@ namespace Patterns.Factory.My_little_factory.Interfaces
 {
     public interface IOrder
     {
-        public int FinishOrder(List<Furniture.Furniture> furnitures);
+        public Dictionary<int, int> FurnitureOrder { get; }
     }
 }

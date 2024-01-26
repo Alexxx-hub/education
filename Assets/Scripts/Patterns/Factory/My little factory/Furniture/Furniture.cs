@@ -6,8 +6,8 @@ namespace Patterns.Factory.My_little_factory.Furniture
     {
         [SerializeField] private int _id;
         [SerializeField] private int _price;
-
+        
+        public int ID => _id;
         public int Price => _price;
-        public int ID => _price;
     }
 }

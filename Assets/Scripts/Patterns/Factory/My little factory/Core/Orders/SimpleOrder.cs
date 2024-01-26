@@ -6,25 +6,17 @@ namespace Patterns.Factory.My_little_factory.Core.Orders
 {
     public class SimpleOrder : IOrder
     {
-        private Dictionary<int, int> _furnitureOrder;
+        public Dictionary<int, int> FurnitureOrder { get; }
         //---------------------------------------------------------------------------------------------------------------
         public SimpleOrder()
         {
-            var furnitureID = Random.Range(0, 3);
-            var furnitureCount = Random.Range(0, 3);
-            
-            _furnitureOrder = new Dictionary<int, int>
+            int furnitureID = Random.Range(0, 3);
+            int furnitureCount = Random.Range(1, 3);
+
+            FurnitureOrder = new Dictionary<int, int>
             {
                 {furnitureID, furnitureCount}
             };
-        }
-        //---------------------------------------------------------------------------------------------------------------
-        public int FinishOrder(List<Furniture.Furniture> furnitures)
-        {
-            int price = 0;
-
-            
-            return price;
         }
         //---------------------------------------------------------------------------------------------------------------
     }
