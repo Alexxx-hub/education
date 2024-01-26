@@ -22,7 +22,9 @@ namespace Patterns.Factory.My_little_factory.Core.Services
         {
             _ordersCreators = new Dictionary<int, OrderCreator>()
             {
-                {0, new SimpleOrderCreator()}
+                {0, new SimpleOrderCreator()},
+                {1, new MiddleOrderCreator()},
+                {2, new HardOrderCreator()}
             };
             
             GetNewOrder();
@@ -40,7 +42,6 @@ namespace Patterns.Factory.My_little_factory.Core.Services
                 }
                 else
                 {
-                    Debug.Log("Not Found");
                     _currentProfit -= (int)(furnitures[i].Price * 0.1f);
                 }
             }
