@@ -1,5 +1,4 @@
 ﻿using System;
-using Patterns.Factory.My_little_factory.Factory;
 using Patterns.Factory.My_little_factory.Factory.FurnitureFactory;
 using UnityEngine.UI;
 
@@ -8,7 +7,7 @@ namespace Patterns.Factory.My_little_factory.Core.Services
     [Serializable]
     public class ControlPanelService
     {
-        public event Action<FurnitureCreator> OnFurnitureChoose;
+        public event Action<FurnitureCreator, int> OnFurnitureChoose;
         public event Action OnFinishButtonDown;
 
         private ChairCreator _chairCreator;
@@ -29,17 +28,17 @@ namespace Patterns.Factory.My_little_factory.Core.Services
         //---------------------------------------------------------------------------------------------------------------
         private void CreateChair()
         {
-            OnFurnitureChoose?.Invoke(_chairCreator);
+            OnFurnitureChoose?.Invoke(_chairCreator, 0);
         }
         //---------------------------------------------------------------------------------------------------------------
         private void CreateSofa()
         {
-            OnFurnitureChoose?.Invoke(_sofaCreator);
+            OnFurnitureChoose?.Invoke(_sofaCreator, 1);
         }
         //---------------------------------------------------------------------------------------------------------------
         private void CreateTable()
         {
-            OnFurnitureChoose?.Invoke(_tableCreator);
+            OnFurnitureChoose?.Invoke(_tableCreator, 2);
         }
         //---------------------------------------------------------------------------------------------------------------
         private void FinishOrder()

@@ -9,5 +9,11 @@ namespace Patterns.Factory.My_little_factory.Furniture
         
         public int ID => _id;
         public int Price => _price;
+        //---------------------------------------------------------------------------------------------------------------
+        public void ReleaseFurniture()
+        {
+            Destroy(gameObject);
+        }
+        //---------------------------------------------------------------------------------------------------------------
     }
 }
