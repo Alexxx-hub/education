@@ -69,6 +69,7 @@ namespace Patterns.Factory.My_little_factory.Core
         {
             _producedFurnitures.Add(_currentFurnitureCreator.CreateFurniture(_spawnPoint));
             _animator.SetInteger("Id", -1);
+            _controlPanelService.EnableButton();
         }
         //---------------------------------------------------------------------------------------------------------------
         private void SendOrder()

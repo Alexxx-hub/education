@@ -27,12 +27,14 @@ namespace Patterns.Factory.My_little_factory.Core
         {
             _furnitureFactory.OnFinishOrder += _orderService.FinishOrder;
             _orderService.OnCalculateProfit += UpdateProfit;
+            _controlPanelService.OnButtonsSwitch += SwitchButtons;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void OnDisable()
         {
             _furnitureFactory.OnFinishOrder -= _orderService.FinishOrder;
             _orderService.OnCalculateProfit -= UpdateProfit;
+            _controlPanelService.OnButtonsSwitch -= SwitchButtons;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void Awake()
@@ -46,6 +48,14 @@ namespace Patterns.Factory.My_little_factory.Core
         {
             _totalProfit += profit;
             _totalProfitText.text = $"{_totalProfit}$";
+        }
+        //---------------------------------------------------------------------------------------------------------------
+        private void SwitchButtons()
+        {
+            _createChairButton.interactable = !_createChairButton.interactable;
+            _createSofaButton.interactable = !_createSofaButton.interactable;
+            _createTableButton.interactable = !_createTableButton.interactable;
+            _finishorderButton.interactable = !_finishorderButton.interactable;
         }
         //---------------------------------------------------------------------------------------------------------------
     }

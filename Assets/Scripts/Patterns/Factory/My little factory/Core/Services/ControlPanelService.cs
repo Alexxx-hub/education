@@ -9,6 +9,7 @@ namespace Patterns.Factory.My_little_factory.Core.Services
     {
         public event Action<FurnitureCreator, int> OnFurnitureChoose;
         public event Action OnFinishButtonDown;
+        public event Action OnButtonsSwitch;
 
         private ChairCreator _chairCreator;
         private SofaCreator _sofaCreator;
@@ -26,19 +27,27 @@ namespace Patterns.Factory.My_little_factory.Core.Services
             buttons[3].onClick.AddListener(FinishOrder);
         }
         //---------------------------------------------------------------------------------------------------------------
+        public void EnableButton()
+        {
+            OnButtonsSwitch?.Invoke();
+        }
+        //---------------------------------------------------------------------------------------------------------------
         private void CreateChair()
         {
             OnFurnitureChoose?.Invoke(_chairCreator, 0);
+            OnButtonsSwitch?.Invoke();
         }
         //---------------------------------------------------------------------------------------------------------------
         private void CreateSofa()
         {
             OnFurnitureChoose?.Invoke(_sofaCreator, 1);
+            OnButtonsSwitch?.Invoke();
         }
         //---------------------------------------------------------------------------------------------------------------
         private void CreateTable()
         {
             OnFurnitureChoose?.Invoke(_tableCreator, 2);
+            OnButtonsSwitch?.Invoke();
         }
         //---------------------------------------------------------------------------------------------------------------
         private void FinishOrder()
