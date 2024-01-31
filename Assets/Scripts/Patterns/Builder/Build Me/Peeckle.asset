@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e17e7f6c324b3b857ed583bf4d745d, type: 3}
+  m_Name: Peeckle
+  m_EditorClassIdentifier: 
+  name: peeckle
+  price: 12
+  prefab: {fileID: 4800149450446480574, guid: 681c04d2eb67439499bd7a111f8116bc, type: 3}

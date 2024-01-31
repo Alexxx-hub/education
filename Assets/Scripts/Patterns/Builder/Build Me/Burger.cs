@@ -2,34 +2,21 @@ using UnityEngine;
 
 public class Burger : MonoBehaviour
 {
-    private bool _item1, _item2, _item3, _item4;
+    private GameObject[] _elements;
     //---------------------------------------------------------------------------------------------------------------
-    public void SetItem1(bool item)
+    public void SetupBurger(GameObject[] elements)
     {
-        _item1 = item;
-    }
-    //---------------------------------------------------------------------------------------------------------------
-    public void SetItem2(bool item)
-    {
-        _item2 = item;
-    }
-    //---------------------------------------------------------------------------------------------------------------
-    public void SetItem3(bool item)
-    {
-        _item3 = item;
-    }
-    //---------------------------------------------------------------------------------------------------------------
-    public void SetItem4(bool item)
-    {
-        _item4 = item;
+        _elements = elements;
+
+        foreach (var element in _elements)
+        {
+            element.transform.SetParent(transform);
+        }
     }
     //---------------------------------------------------------------------------------------------------------------
     public void GetBurger()
     {
-        Debug.Log($"Parameter 1 is : {_item1}");
-        Debug.Log($"Parameter 2 is : {_item2}");
-        Debug.Log($"Parameter 3 is : {_item3}");
-        Debug.Log($"Parameter 4 is : {_item4}");
+        
     }
     //---------------------------------------------------------------------------------------------------------------
 }

@@ -9,7 +9,7 @@ public class LevelService : MonoBehaviour
     //---------------------------------------------------------------------------------------------------------------
     private void Awake()
     {
-        _burgerBuilder = new BurgerBuilder();
+        _burgerBuilder = GetComponent<BurgerBuilder>();
     }
     //---------------------------------------------------------------------------------------------------------------
     private void Update()
@@ -17,9 +17,7 @@ public class LevelService : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
         {
             _burger = _burgerBuilder
-                .SetItems(settings)
-                .Build();
-            _burger.GetBurger();
+                .Build(settings);
         }
     }
     //---------------------------------------------------------------------------------------------------------------
