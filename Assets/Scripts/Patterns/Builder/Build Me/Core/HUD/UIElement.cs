@@ -1,22 +1,22 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Burger : MonoBehaviour
+public abstract class UIElement : MonoBehaviour
 {
-    private GameObject[] _elements;
+    protected bool _opened = false;
+    
     //---------------------------------------------------------------------------------------------------------------
-    public void SetupBurger(GameObject[] elements)
+    public virtual void Show()
     {
-        _elements = elements;
-
-        foreach (var element in _elements)
-        {
-            element.transform.SetParent(transform);
-        }
+        if(_opened) return;
+        gameObject.SetActive(true);
+        _opened = true;
     }
     //---------------------------------------------------------------------------------------------------------------
-    public void GetBurger()
+    public virtual void Hide()
     {
-        
+        if(!_opened) return;
+        gameObject.SetActive(false);
+        _opened = false;
     }
     //---------------------------------------------------------------------------------------------------------------
 }
