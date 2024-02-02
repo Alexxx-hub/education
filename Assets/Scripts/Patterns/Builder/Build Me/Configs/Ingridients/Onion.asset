@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e17e7f6c324b3b857ed583bf4d745d, type: 3}
   m_Name: Onion
   m_EditorClassIdentifier: 
-  name: onion
-  price: 3
-  prefab: {fileID: 334110056097767070, guid: 02ec4f3c8bfe4d24a9b3563d2fd0656f, type: 3}
+  _name: onion
+  _price: 3
+  _prefab: {fileID: 334110056097767070, guid: 02ec4f3c8bfe4d24a9b3563d2fd0656f, type: 3}

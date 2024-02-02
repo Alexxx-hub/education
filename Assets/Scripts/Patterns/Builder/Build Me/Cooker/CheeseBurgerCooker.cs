@@ -1,15 +1,7 @@
-﻿public class CheeseBurgerCooker : ICooker
+﻿public class CheeseBurgerCooker : BaseCooker
 {
-    private BurgerBuilder _burgerBuilder;
-    private MenuItem _menuItem;
     //---------------------------------------------------------------------------------------------------------------
-    public CheeseBurgerCooker(BurgerBuilder burgerBuilder, MenuItem item)
-    {
-        _burgerBuilder = burgerBuilder;
-        _menuItem = item;
-    }
-    //---------------------------------------------------------------------------------------------------------------
-    public BurgerBase Cook()
+    public override BurgerBase Cook()
     {
         return _burgerBuilder
             .Clear()

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e17e7f6c324b3b857ed583bf4d745d, type: 3}
   m_Name: Chiken
   m_EditorClassIdentifier: 
-  name: chiken
-  price: 45
-  prefab: {fileID: 6934839270943694370, guid: 44c0d41edfda17d4db2eab511a3d5b05, type: 3}
+  _name: chiken
+  _price: 45
+  _prefab: {fileID: 6934839270943694370, guid: 44c0d41edfda17d4db2eab511a3d5b05, type: 3}

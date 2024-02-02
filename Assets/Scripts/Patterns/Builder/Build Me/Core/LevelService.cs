@@ -12,11 +12,11 @@ public class LevelService : MonoBehaviour
     [SerializeField] private Menu _menu;
 
     private BurgerBuilder _burgerBuilder;
-    private ICooker _cooker;
+    private BaseCooker _cooker;
     //---------------------------------------------------------------------------------------------------------------
     private void Awake()
     {
-        _burgerBuilder = new BurgerBuilder(_levelConfig.BurgerElements, _levelConfig.Pan.prefab, _offset, _spawnPoint.position);
+        _burgerBuilder = new BurgerBuilder(_levelConfig.BurgerElements, _levelConfig.Pan.Prefab, _offset, _spawnPoint.position);
        _menu.Construct(_burgerBuilder, this);
     }
     //---------------------------------------------------------------------------------------------------------------
@@ -29,12 +29,12 @@ public class LevelService : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.C))
         {
-            _cooker = new CustomBurgerCooker(_burgerBuilder, items);
-            BurgerBase burger = _cooker.Cook();
+            //_cooker = new CustomBurgerCooker(_burgerBuilder, items);
+           // BurgerBase burger = _cooker.Cook();
         }
     }
     //---------------------------------------------------------------------------------------------------------------
-    public void GetCooker(ICooker cooker)
+    public void GetCooker(BaseCooker cooker)
     {
         _cooker = cooker;
     }

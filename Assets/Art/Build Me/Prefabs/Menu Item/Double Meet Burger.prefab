@@ -111,7 +111,7 @@ PrefabInstance:
     - target: {fileID: 5933179120217606523, guid: 00c10fdbb6e627c439f158b77f551e54,
         type: 3}
       propertyPath: m_Name
-      value: American Burger
+      value: Double Meet Burger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -120,7 +120,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5933179120217606523, guid: 00c10fdbb6e627c439f158b77f551e54,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 637505291904461475}
+      addedObject: {fileID: 2999159007987127908}
   m_SourcePrefab: {fileID: 100100000, guid: 00c10fdbb6e627c439f158b77f551e54, type: 3}
 --- !u!114 &3633144224335413744 stripped
 MonoBehaviour:
@@ -164,7 +164,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3318702005161736077}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &637505291904461475
+--- !u!114 &2999159007987127908
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8960060006747569910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 603022fd0c724f989a0ba9019c8beec4, type: 3}
+  m_Script: {fileID: 11500000, guid: ae93afacac5f45f8a55dbeb173ad61c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _priceField: {fileID: 4899958495241596848}

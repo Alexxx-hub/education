@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-public class CustomBurgerCooker : ICooker
+public class CustomBurgerCooker 
 {
     private List<string> _items;
     private BurgerBuilder _burgerBuilder;

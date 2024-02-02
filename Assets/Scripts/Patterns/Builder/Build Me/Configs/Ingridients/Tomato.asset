@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e17e7f6c324b3b857ed583bf4d745d, type: 3}
   m_Name: Tomato
   m_EditorClassIdentifier: 
-  name: tomato
-  price: 10
-  prefab: {fileID: 8446100002561031435, guid: 4c65929951b48ff41bfaa190ea6e764b, type: 3}
+  _name: tomato
+  _price: 8
+  _prefab: {fileID: 8446100002561031435, guid: 4c65929951b48ff41bfaa190ea6e764b, type: 3}

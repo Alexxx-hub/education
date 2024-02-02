@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e17e7f6c324b3b857ed583bf4d745d, type: 3}
   m_Name: Pan
   m_EditorClassIdentifier: 
-  name: pan
-  price: 5
-  prefab: {fileID: 4015631580993693186, guid: 752efc3f3871a664aa104cd7f7c3cfeb, type: 3}
+  _name: pan
+  _price: 4
+  _prefab: {fileID: 4015631580993693186, guid: 752efc3f3871a664aa104cd7f7c3cfeb, type: 3}

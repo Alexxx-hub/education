@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e17e7f6c324b3b857ed583bf4d745d, type: 3}
   m_Name: Egg
   m_EditorClassIdentifier: 
-  name: egg
-  price: 4
-  prefab: {fileID: 3189908541949324461, guid: 8c5ba4c37b61e5b45845377b5cf7c4cc, type: 3}
+  _name: egg
+  _price: 6
+  _prefab: {fileID: 3189908541949324461, guid: 8c5ba4c37b61e5b45845377b5cf7c4cc, type: 3}

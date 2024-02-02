@@ -89,9 +89,9 @@ public class BurgerBuilder
     {
         foreach (var burgerElement in _burgerElements)
         {
-            if (burgerElement.name == id)
+            if (burgerElement.Name == id)
             {
-                return Object.Instantiate(burgerElement.prefab, spawnPosition, Quaternion.identity);
+                return Object.Instantiate(burgerElement.Prefab, spawnPosition, Quaternion.identity);
             }
         }
 

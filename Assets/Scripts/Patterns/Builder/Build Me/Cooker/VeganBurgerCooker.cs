@@ -1,4 +1,4 @@
-﻿public class AmericanBurgerCooker : BaseCooker
+﻿public class VeganBurgerCooker : BaseCooker
 {
     //---------------------------------------------------------------------------------------------------------------
     public override BurgerBase Cook()
@@ -9,10 +9,10 @@
             .WithPrice(_menuItem.Price)
             .WithWeight(_menuItem.Weight)
             .WithItem("cabbage")
-            .WithItem("kotlet")
-            .WithItem("cheese")
             .WithItem("tomato")
             .WithItem("peeckle")
+            .WithItem("bell paper")
+            .WithItem("cabbage")
             .WithItem("onion")
             .Build();
     }

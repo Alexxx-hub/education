@@ -3,29 +3,24 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class MenuItem : MonoBehaviour
+public abstract class BaseCooker : MonoBehaviour
 {
-    public event Action<ICooker> OnItemChoosed;
+    public event Action<BaseCooker> OnItemChoosed;
 
-    [SerializeField] protected string _name;
-    [SerializeField] protected float _price;
-    [SerializeField] protected float _weight; 
+    public MenuItem _menuItem;
     
     [SerializeField] protected TextMeshProUGUI _priceField;
     [SerializeField] protected TextMeshProUGUI _nameField;
     [SerializeField] protected Button _button;
-
-    protected BurgerBuilder _burgerBuilder;
-
-    public ICooker Cooker { get; protected set; }
     
-    public string Name => _name;
-    public float Price => _price;
-    public float Weight => _weight;
+    protected BurgerBuilder _burgerBuilder;
     //---------------------------------------------------------------------------------------------------------------
-    public virtual void Construct(BurgerBuilder builder)
+    public void Construct(BurgerBuilder burgerBuilder, MenuItem item)
     {
-        _burgerBuilder = builder;
+        _burgerBuilder = burgerBuilder;
+        _menuItem = item;
+        _priceField.text = _menuItem.Price.ToString();
+        _nameField.text = _menuItem.Name;
     }
     //---------------------------------------------------------------------------------------------------------------
     private void OnEnable()
@@ -38,15 +33,11 @@ public abstract class MenuItem : MonoBehaviour
         _button.onClick.RemoveAllListeners();
     }
     //---------------------------------------------------------------------------------------------------------------
-    protected void Awake()
-    {
-        _priceField.text = _price.ToString();
-        _nameField.text = _name;
-    }
-    //---------------------------------------------------------------------------------------------------------------
     private void SendBurgerBuilder()
     {
-        OnItemChoosed?.Invoke(Cooker);
+        OnItemChoosed?.Invoke(this);
     }
+    //---------------------------------------------------------------------------------------------------------------
+    public abstract BurgerBase Cook();
     //---------------------------------------------------------------------------------------------------------------
 }

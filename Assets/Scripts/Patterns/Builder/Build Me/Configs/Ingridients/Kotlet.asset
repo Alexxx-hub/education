@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e17e7f6c324b3b857ed583bf4d745d, type: 3}
   m_Name: Kotlet
   m_EditorClassIdentifier: 
-  name: kotlet
-  price: 55
-  prefab: {fileID: 407740232172337265, guid: adc06f1c2c11c0842b298738ed5e9295, type: 3}
+  _name: kotlet
+  _price: 55
+  _prefab: {fileID: 407740232172337265, guid: adc06f1c2c11c0842b298738ed5e9295, type: 3}

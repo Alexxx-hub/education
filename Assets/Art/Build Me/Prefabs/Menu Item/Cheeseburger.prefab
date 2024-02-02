@@ -120,7 +120,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5933179120217606523, guid: 00c10fdbb6e627c439f158b77f551e54,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4043182850351958621}
+      addedObject: {fileID: 7918001745335143477}
   m_SourcePrefab: {fileID: 100100000, guid: 00c10fdbb6e627c439f158b77f551e54, type: 3}
 --- !u!114 &3633144224335413744 stripped
 MonoBehaviour:
@@ -164,7 +164,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3318702005161736077}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4043182850351958621
+--- !u!114 &7918001745335143477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,12 +173,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8960060006747569910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e6845da35d47939b20cd6885a208a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8022b166b65d4fd98a0ef8f4ea0284ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Cheeseburger
-  _price: 80
-  _weight: 200
   _priceField: {fileID: 4899958495241596848}
   _nameField: {fileID: 8807368887026098414}
   _button: {fileID: 3633144224335413744}

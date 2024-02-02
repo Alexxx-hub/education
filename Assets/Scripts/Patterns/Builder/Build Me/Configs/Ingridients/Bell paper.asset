@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e17e7f6c324b3b857ed583bf4d745d, type: 3}
   m_Name: Bell paper
   m_EditorClassIdentifier: 
-  name: bell paper
-  price: 15
-  prefab: {fileID: 5988750383373405766, guid: 905d8d5926766b2459fad18200f340e4, type: 3}
+  _name: bell paper
+  _price: 12
+  _prefab: {fileID: 5988750383373405766, guid: 905d8d5926766b2459fad18200f340e4, type: 3}

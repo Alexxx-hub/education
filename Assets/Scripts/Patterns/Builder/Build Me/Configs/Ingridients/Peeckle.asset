@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e17e7f6c324b3b857ed583bf4d745d, type: 3}
   m_Name: Peeckle
   m_EditorClassIdentifier: 
-  name: peeckle
-  price: 12
-  prefab: {fileID: 4800149450446480574, guid: 681c04d2eb67439499bd7a111f8116bc, type: 3}
+  _name: peeckle
+  _price: 7
+  _prefab: {fileID: 4800149450446480574, guid: 681c04d2eb67439499bd7a111f8116bc, type: 3}

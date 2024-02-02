@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e17e7f6c324b3b857ed583bf4d745d, type: 3}
   m_Name: Cheese
   m_EditorClassIdentifier: 
-  name: cheese
-  price: 17
-  prefab: {fileID: 7551271487932771437, guid: 3cf77359a1c1de64bb4888343f9ff31d, type: 3}
+  _name: cheese
+  _price: 10
+  _prefab: {fileID: 7551271487932771437, guid: 3cf77359a1c1de64bb4888343f9ff31d, type: 3}
