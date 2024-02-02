@@ -3,6 +3,6 @@
     public override void Construct(BurgerBuilder builder)
     {
         base.Construct(builder);
-        Cooker = new AmericanBurgerCooker(_burgerBuilder);
+        Cooker = new AmericanBurgerCooker(_burgerBuilder, this);
     }
 }

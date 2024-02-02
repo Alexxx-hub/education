@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pan: {fileID: 11400000, guid: 8889656cd19dc5d44bbb1c6040bdf16f, type: 2}
   _BurgerElements:
+  - {fileID: 11400000, guid: faade7fb584fe514aa596de0e6bb0423, type: 2}
   - {fileID: 11400000, guid: 82a815d7287291846851818cb173b7c5, type: 2}
   - {fileID: 11400000, guid: d51fb3dda1b11db4781cdb5449e17f71, type: 2}
-  - {fileID: 11400000, guid: f65ee6a1cb48d0f4b9db2203b06496d9, type: 2}
+  - {fileID: 11400000, guid: c660f234b2c55864aa468b7806baa203, type: 2}
+  - {fileID: 11400000, guid: acc27547ea79d834da04d83805d5941c, type: 2}
+  - {fileID: 11400000, guid: 4f88753be9d72534eabda7fd7e4d723a, type: 2}
+  - {fileID: 11400000, guid: c3068281d399cac44ae99139c52f0cf8, type: 2}
   - {fileID: 11400000, guid: 2b0639d15753bf94fba19974db68a972, type: 2}
+  - {fileID: 11400000, guid: f65ee6a1cb48d0f4b9db2203b06496d9, type: 2}

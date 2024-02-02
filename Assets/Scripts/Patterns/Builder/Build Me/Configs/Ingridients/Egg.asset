@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c584f74fdec5415cbcf561fbdd9c1c9b, type: 3}
-  m_Name: Menu Config
+  m_Script: {fileID: 11500000, guid: 54e17e7f6c324b3b857ed583bf4d745d, type: 3}
+  m_Name: Egg
   m_EditorClassIdentifier: 
-  _menuItems:
-  - {fileID: 8960060006747569910, guid: 3862986198c337648b3c5aeb5c33a1ac, type: 3}
-  - {fileID: 8960060006747569910, guid: 1242970ba3b7127479349dc5fadea55f, type: 3}
+  name: egg
+  price: 4
+  prefab: {fileID: 3189908541949324461, guid: 8c5ba4c37b61e5b45845377b5cf7c4cc, type: 3}

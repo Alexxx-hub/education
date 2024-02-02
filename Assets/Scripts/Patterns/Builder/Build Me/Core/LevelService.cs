@@ -17,7 +17,7 @@ public class LevelService : MonoBehaviour
     private void Awake()
     {
         _burgerBuilder = new BurgerBuilder(_levelConfig.BurgerElements, _levelConfig.Pan.prefab, _offset, _spawnPoint.position);
-       _menu.Construct(_burgerBuilder);
+       _menu.Construct(_burgerBuilder, this);
     }
     //---------------------------------------------------------------------------------------------------------------
     private void Update()
@@ -32,6 +32,11 @@ public class LevelService : MonoBehaviour
             _cooker = new CustomBurgerCooker(_burgerBuilder, items);
             BurgerBase burger = _cooker.Cook();
         }
+    }
+    //---------------------------------------------------------------------------------------------------------------
+    public void GetCooker(ICooker cooker)
+    {
+        _cooker = cooker;
     }
     //---------------------------------------------------------------------------------------------------------------
 }
