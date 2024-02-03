@@ -18,22 +18,22 @@ namespace Patterns.Factory.My_little_factory.Core
         
         [Space(10)]
         [SerializeField] private FurnitureFactory _furnitureFactory;
-        [SerializeField] private OrderService _orderService;
+        [SerializeField] private OrderService _ordersService;
 
         private int _totalProfit;
         private ControlPanelService _controlPanelService;
         //---------------------------------------------------------------------------------------------------------------
         private void OnEnable()
         {
-            _furnitureFactory.OnFinishOrder += _orderService.FinishOrder;
-            _orderService.OnCalculateProfit += UpdateProfit;
+            _furnitureFactory.OnFinishOrder += _ordersService.FinishOrder;
+            _ordersService.OnCalculateProfit += UpdateProfit;
             _controlPanelService.OnButtonsSwitch += SwitchButtons;
         }
         //---------------------------------------------------------------------------------------------------------------
         private void OnDisable()
         {
-            _furnitureFactory.OnFinishOrder -= _orderService.FinishOrder;
-            _orderService.OnCalculateProfit -= UpdateProfit;
+            _furnitureFactory.OnFinishOrder -= _ordersService.FinishOrder;
+            _ordersService.OnCalculateProfit -= UpdateProfit;
             _controlPanelService.OnButtonsSwitch -= SwitchButtons;
         }
         //---------------------------------------------------------------------------------------------------------------

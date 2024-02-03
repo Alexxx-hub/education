@@ -1,24 +1,40 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
-public class CustomBurgerCooker 
+public class CustomBurgerCooker : BaseCooker
 {
-    private List<string> _items;
-    private BurgerBuilder _burgerBuilder;
+    private const int CUSTOM_BURGER_MINPRICE = 180;
+    private const string CUSTOM_BURGER_NAME = "Custom Burger";
     
-    public CustomBurgerCooker(BurgerBuilder burgerBuilder, List<string> items)
+    private List<string> _items;
+    //---------------------------------------------------------------------------------------------------------------
+    public override void Construct(BurgerBuilder burgerBuilder, List<string> itemsList)
     {
         _burgerBuilder = burgerBuilder;
-        _items = items;
+        _items = itemsList;
     }
-    
-    public BurgerBase Cook()
+    //---------------------------------------------------------------------------------------------------------------
+    private void Awake()
+    {
+        _priceField.text = CUSTOM_BURGER_MINPRICE.ToString();
+        _nameField.text = CUSTOM_BURGER_NAME;
+        Id = CUSTOM_BURGER_NAME;
+    }
+    //---------------------------------------------------------------------------------------------------------------
+    public override BurgerBase Cook()
     {
         return _burgerBuilder
             .Clear()
-            .WithName("Custom Burger")
+            .WithName(CUSTOM_BURGER_NAME)
             .WithPrice(320)
             .WithWeight(450)
             .WithItem(_items)
             .Build();
     }
+    //---------------------------------------------------------------------------------------------------------------
+    public void SetItems(List<string> items)
+    {
+        _items = items;
+    }
+    //---------------------------------------------------------------------------------------------------------------
 }

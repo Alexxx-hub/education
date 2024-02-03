@@ -23,3 +23,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c3068281d399cac44ae99139c52f0cf8, type: 2}
   - {fileID: 11400000, guid: 2b0639d15753bf94fba19974db68a972, type: 2}
   - {fileID: 11400000, guid: f65ee6a1cb48d0f4b9db2203b06496d9, type: 2}
+  _ingridientButtonPrefab: {fileID: 4893336840225429669, guid: 6c585fdc68b01b1428a66fe876527d9e,
+    type: 3}

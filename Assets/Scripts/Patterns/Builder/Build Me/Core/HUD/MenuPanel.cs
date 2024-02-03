@@ -4,9 +4,12 @@ using UnityEngine.UI;
 
 public class MenuPanel : UIElement
 {
+    [Header("Animation settings")]
     [SerializeField] private float _speed;
     [SerializeField] private float _openPosition;
     [SerializeField] private float _closePosition;
+    
+    [Header("Content")]
     [SerializeField] private Button _openButton;
 
     private RectTransform _rectTransform;
@@ -23,7 +26,7 @@ public class MenuPanel : UIElement
         _openButton.onClick.RemoveAllListeners();
     }
     //---------------------------------------------------------------------------------------------------------------
-    private void SwitchState()
+    public void SwitchState()
     {
         if (_opened)
         {

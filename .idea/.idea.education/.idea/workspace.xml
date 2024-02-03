@@ -25,6 +25,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/32/1e00bbb9/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/ColorBlock.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/ff/f29fbd35/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -64,10 +65,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="25396">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="25396" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -113,7 +114,10 @@
       <workItem from="1706792065978" duration="4968000" />
       <workItem from="1706799222774" duration="5288000" />
       <workItem from="1706863506199" duration="3173000" />
-      <workItem from="1706880159041" duration="10523000" />
+      <workItem from="1706880159041" duration="10997000" />
+      <workItem from="1706962205128" duration="3759000" />
+      <workItem from="1706966017096" duration="7832000" />
+      <workItem from="1706981190624" duration="4156000" />
     </task>
     <servers />
   </component>
@@ -125,37 +129,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Patterns/Builder/Build Me/Builder/BurgerBuilder.cs</url>
-          <line>36</line>
-          <properties documentPath="R:\Work\Unity Projects\repos\education\Assets\Scripts\Patterns\Builder\Build Me\Builder\BurgerBuilder.cs" initialLine="36" containingFunctionPresentation="method 'WithItem'">
-            <startOffsets>
-              <option value="864" />
-            </startOffsets>
-            <endOffsets>
-              <option value="879" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Patterns/Builder/Build Me/Builder/BurgerBuilder.cs</url>
-          <line>65</line>
-          <properties documentPath="R:\Work\Unity Projects\repos\education\Assets\Scripts\Patterns\Builder\Build Me\Builder\BurgerBuilder.cs" initialLine="65" containingFunctionPresentation="method 'Build'">
-            <startOffsets>
-              <option value="1386" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1455" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -19,3 +19,5 @@ MonoBehaviour:
   - {fileID: 8960060006747569910, guid: ce78d182fab5da8428502f1cf66278cc, type: 3}
   - {fileID: 8960060006747569910, guid: 7e4dc5fb295d52940a4f4de717ff77a8, type: 3}
   - {fileID: 8960060006747569910, guid: 3fc112e5d4742a24598addc6ae4355c9, type: 3}
+  _customBurgerMenuItem: {fileID: 8960060006747569910, guid: 64ace34106406aa4282e4b9c9781309f,
+    type: 3}

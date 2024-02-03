@@ -2,20 +2,22 @@
 
 public abstract class UIElement : MonoBehaviour
 {
-    protected bool _opened = false;
+    [field: SerializeField] public Transform ContentArea { get; private set; }
+    
+    protected bool _opened;
     
     //---------------------------------------------------------------------------------------------------------------
     public virtual void Show()
     {
         if(_opened) return;
-        gameObject.SetActive(true);
+        ContentArea.gameObject.SetActive(true);
         _opened = true;
     }
     //---------------------------------------------------------------------------------------------------------------
     public virtual void Hide()
     {
         if(!_opened) return;
-        gameObject.SetActive(false);
+        ContentArea.gameObject.SetActive(false);
         _opened = false;
     }
     //---------------------------------------------------------------------------------------------------------------

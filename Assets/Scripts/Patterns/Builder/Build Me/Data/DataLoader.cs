@@ -15,9 +15,9 @@ public class DataLoader
         _dataFile = textAsset;
     }
     //---------------------------------------------------------------------------------------------------------------
-    public List<MenuItem> Load()
+    public List<MenuItemData> Load()
     {
-        List<MenuItem> menuItemsData = new List<MenuItem>();
+        List<MenuItemData> menuItemsData = new List<MenuItemData>();
         
         string[] rows = _dataFile.text.Split("\n", StringSplitOptions.RemoveEmptyEntries);
         int dataStartRowIndex = 1;
@@ -26,7 +26,7 @@ public class DataLoader
         {
             string[] cells = rows[i].Split(";");
             
-            menuItemsData.Add(new MenuItem(cells[NAME], Int32.Parse(cells[PRICE]), Int32.Parse(cells[WEIGHT])));
+            menuItemsData.Add(new MenuItemData(cells[NAME], Int32.Parse(cells[PRICE]), Int32.Parse(cells[WEIGHT])));
         }
 
         return menuItemsData;

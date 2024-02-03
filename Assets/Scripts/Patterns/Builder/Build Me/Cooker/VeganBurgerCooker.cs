@@ -5,9 +5,9 @@
     {
         return _burgerBuilder
             .Clear()
-            .WithName(_menuItem.Name)
-            .WithPrice(_menuItem.Price)
-            .WithWeight(_menuItem.Weight)
+            .WithName(MenuItemData.Name)
+            .WithPrice(MenuItemData.Price)
+            .WithWeight(MenuItemData.Weight)
             .WithItem("cabbage")
             .WithItem("tomato")
             .WithItem("peeckle")

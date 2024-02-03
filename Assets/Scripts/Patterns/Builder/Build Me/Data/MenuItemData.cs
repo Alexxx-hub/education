@@ -1,4 +1,4 @@
-﻿public class MenuItem 
+﻿public class MenuItemData 
 { 
     private string _name; 
     private int _price; 
@@ -8,7 +8,7 @@
     public int Price => _price;
     public int Weight => _weight;
     //---------------------------------------------------------------------------------------------------------------
-    public MenuItem(string name, int price, int weight)
+    public MenuItemData(string name, int price, int weight)
     {
         _name = name;
         _price = price;
