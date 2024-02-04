@@ -2,17 +2,17 @@
 
 public class BurgerBase : MonoBehaviour
 {
-    protected string _name;
-    protected float _price;
-    protected float _weight;
-    
+    public string Name { get; private set; }
+    public float Price { get; private set; }
+    public float Weight { get; private set; }
+
     protected GameObject[] _items;
 
     public void Construct(string name, float price, float weight)
     {
-        _name = name;
-        _price = price;
-        _weight = weight;
+        Name = name;
+        Price = price;
+        Weight = weight;
     }
     
     public void SetupBurgerItems(GameObject[] elements)

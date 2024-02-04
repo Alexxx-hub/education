@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,7 +26,7 @@ public abstract class BaseCooker : MonoBehaviour
         Id = MenuItemData.Name;
     }
     //---------------------------------------------------------------------------------------------------------------
-    public virtual void Construct(BurgerBuilder burgerBuilder, List<string> itemsList){}
+    public virtual void Construct(BurgerBuilder burgerBuilder){}
     //---------------------------------------------------------------------------------------------------------------
     protected virtual void OnEnable()
     {

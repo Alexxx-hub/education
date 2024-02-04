@@ -50,6 +50,29 @@ public class BurgerBuilder
         return this;
     }
 
+    public BurgerBuilder WithPrice()
+    {
+        if (_items != null)
+        {
+            int totalPrice = 0;
+
+            for (int i = 0; i < _items.Count; i++)
+            {
+                for (int j = 0; j < _burgerElements.Length; j++)
+                {
+                    if (_burgerElements[j].Name == _items[i])
+                    {
+                        totalPrice += _burgerElements[j].Price;
+                        break;
+                    }
+                }
+            }
+
+            _price = totalPrice;
+        }
+        return this;
+    }
+    
     public BurgerBuilder WithPrice(float price)
     {
         _price = price;

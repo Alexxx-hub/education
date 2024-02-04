@@ -4,7 +4,7 @@ using Object = UnityEngine.Object;
 public class IngridientPanelService
 {
     public IngridientButton[] IngridientButtons { get; }
-    
+    //---------------------------------------------------------------------------------------------------------------
     public IngridientPanelService(LevelConfig levelConfig, Transform parent)
     { 
         IngridientButtons = new IngridientButton[levelConfig.BurgerElements.Length];
@@ -15,4 +15,5 @@ public class IngridientPanelService
             IngridientButtons[i].Construct(levelConfig.BurgerElements[i]);
         }
     }
+    //---------------------------------------------------------------------------------------------------------------
 }

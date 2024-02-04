@@ -7,18 +7,18 @@ public class OrdersService
 {
     public event Action<int> totalPriceCalculated;
 
-    private int _totalPrice;
-    
     private Transform _parent;
     private GameObject _prefab;
     private List<OrderItem> OrderItems;
+    
+    public int TotalPrice { get; private set; }
 
     public OrdersService(GameObject prefab, Transform parent)
     {
         OrderItems = new List<OrderItem>();
         _prefab = prefab;
         _parent = parent;
-        _totalPrice = 0;
+        TotalPrice = 0;
     }
     
     public void AddNewItem(BurgerElement burgerElement)
@@ -26,9 +26,9 @@ public class OrdersService
         OrderItem orderItem = Object.Instantiate(_prefab, _parent, false).GetComponent<OrderItem>();
         orderItem.Construct(burgerElement.Name, burgerElement.Price.ToString());
         OrderItems.Add(orderItem);
-        _totalPrice += burgerElement.Price;
+        TotalPrice += burgerElement.Price;
         
-        totalPriceCalculated?.Invoke(_totalPrice);
+        totalPriceCalculated?.Invoke(TotalPrice);
     }
 
     public void ResetItems()
@@ -39,16 +39,11 @@ public class OrdersService
         }
         
         OrderItems.Clear();
-        _totalPrice = 0;
+        TotalPrice = 0;
         
-        totalPriceCalculated?.Invoke(_totalPrice);
+        totalPriceCalculated?.Invoke(TotalPrice);
     }
-
-    public void SendOrder()
-    {
-        
-    }
-
+    
     public void CancelOrder()
     {
         ResetItems();

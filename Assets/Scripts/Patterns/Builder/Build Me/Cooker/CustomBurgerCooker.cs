@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 public class CustomBurgerCooker : BaseCooker
 {
@@ -8,10 +7,9 @@ public class CustomBurgerCooker : BaseCooker
     
     private List<string> _items;
     //---------------------------------------------------------------------------------------------------------------
-    public override void Construct(BurgerBuilder burgerBuilder, List<string> itemsList)
+    public override void Construct(BurgerBuilder burgerBuilder)
     {
         _burgerBuilder = burgerBuilder;
-        _items = itemsList;
     }
     //---------------------------------------------------------------------------------------------------------------
     private void Awake()
@@ -19,22 +17,27 @@ public class CustomBurgerCooker : BaseCooker
         _priceField.text = CUSTOM_BURGER_MINPRICE.ToString();
         _nameField.text = CUSTOM_BURGER_NAME;
         Id = CUSTOM_BURGER_NAME;
+        _items = new List<string>();
     }
     //---------------------------------------------------------------------------------------------------------------
     public override BurgerBase Cook()
     {
-        return _burgerBuilder
+        BurgerBase burger = _burgerBuilder
             .Clear()
             .WithName(CUSTOM_BURGER_NAME)
-            .WithPrice(320)
             .WithWeight(450)
             .WithItem(_items)
+            .WithPrice()
             .Build();
+
+        _items.Clear();
+
+        return burger;
     }
     //---------------------------------------------------------------------------------------------------------------
-    public void SetItems(List<string> items)
+    public void SetItems(BurgerElement burgerElement)
     {
-        _items = items;
+        _items.Add(burgerElement.Name);
     }
     //---------------------------------------------------------------------------------------------------------------
 }

@@ -2480,6 +2480,7 @@ MonoBehaviour:
   _orderArea: {fileID: 580282430}
   _orderItemPrefab: {fileID: 8810167021754661272, guid: a6ade57a1011f364c96b46f8b52f5e68,
     type: 3}
+  _totalTextBox: {fileID: 656918990}
 --- !u!1 &1376238811
 GameObject:
   m_ObjectHideFlags: 0
@@ -4047,17 +4048,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db5bce1314f437f8bf1634ef428876a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - cheese
-  - cabbage
-  - tomato
   _offset: 0.3
   _spawnPoint: {fileID: 654914316}
-  _levelConfig: {fileID: 11400000, guid: 32030256f8485e741a9a20058c220a42, type: 2}
-  _menuConfig: {fileID: 11400000, guid: 536341f3b731bb44da18ea487f0d4e70, type: 2}
-  _ingridientPanel: {fileID: 1836606335}
-  _menuPanel: {fileID: 287255738}
-  _orderPanel: {fileID: 1342234947}
+  <LevelConfig>k__BackingField: {fileID: 11400000, guid: 32030256f8485e741a9a20058c220a42,
+    type: 2}
+  <MenuConfig>k__BackingField: {fileID: 11400000, guid: 536341f3b731bb44da18ea487f0d4e70,
+    type: 2}
+  _hud: {fileID: 2128398271}
 --- !u!1 &2021540813
 GameObject:
   m_ObjectHideFlags: 0
@@ -4147,8 +4144,9 @@ GameObject:
   - component: {fileID: 2128398269}
   - component: {fileID: 2128398268}
   - component: {fileID: 2128398267}
+  - component: {fileID: 2128398271}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4240,6 +4238,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2128398271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128398266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f2c6a496f04f4c92d423f476d76944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menuPanel: {fileID: 287255738}
+  _ingridientPanel: {fileID: 1836606335}
+  _moneyTextBox: {fileID: 982273517}
+  <OrderPanel>k__BackingField: {fileID: 1342234947}
 --- !u!1 &2136941947
 GameObject:
   m_ObjectHideFlags: 0

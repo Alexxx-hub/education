@@ -1,5 +1,4 @@
 ﻿using Patterns.Factory.My_little_factory.Furniture;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace Patterns.Factory.My_little_factory.Factory.FurnitureFactory

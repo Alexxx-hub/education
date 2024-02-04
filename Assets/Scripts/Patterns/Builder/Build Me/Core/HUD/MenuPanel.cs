@@ -13,11 +13,18 @@ public class MenuPanel : UIElement
     [SerializeField] private Button _openButton;
 
     private RectTransform _rectTransform;
+    public MenuService MenuService { get; private set; }
+    //---------------------------------------------------------------------------------------------------------------
+    public void Construct(Level level, IngridientPanel ingridientPanel, OrderPanel orderPanel)
+    {
+        MenuService = new MenuService(level.BurgerBuilder, level, ingridientPanel, level.MenuConfig, ContentArea);
+        MenuService.CustomBurgerCooker.Button.onClick.AddListener(orderPanel.Show);
+        MenuService.CustomBurgerCooker.Button.onClick.AddListener(SwitchState);
+    }
     //---------------------------------------------------------------------------------------------------------------
     private void Awake()
     {
         _openButton.onClick.AddListener(SwitchState);
-
         _rectTransform = GetComponent<RectTransform>();
     }
     //---------------------------------------------------------------------------------------------------------------

@@ -8,7 +8,7 @@ public class MenuService
 
     public CustomBurgerCooker CustomBurgerCooker { get; }
     //---------------------------------------------------------------------------------------------------------------
-    public MenuService(BurgerBuilder builder, LevelService levelService, IngridientPanel ingridientPanel, MenuConfig menuConfig, Transform contentArea)
+    public MenuService(BurgerBuilder builder, Level level, IngridientPanel ingridientPanel, MenuConfig menuConfig, Transform contentArea)
     {
         _menuItemsData = new List<MenuItemData>();
         
@@ -20,13 +20,18 @@ public class MenuService
             var item = menuConfig.MenuItems[i];
             BaseCooker cooker = Object.Instantiate(item, contentArea, false).GetComponent<BaseCooker>();
             cooker.Construct(builder, _menuItemsData[i]);
-            cooker.OnItemChoosed += levelService.GetCooker;
+            
+            cooker.Button.onClick.AddListener(level.CookBurger);
+            
+            cooker.OnItemChoosed += level.GetCooker;
             cooker.OnItemChoosed += ingridientPanel.OnCookerChoosed;
+            
+            
         }
         
         CustomBurgerCooker = Object.Instantiate(menuConfig.CustomBurgerMenuItem, contentArea, false).GetComponent<CustomBurgerCooker>();
-        //CustomBurgerCooker.Construct(builder);
-        CustomBurgerCooker.OnItemChoosed += levelService.GetCooker;
+        CustomBurgerCooker.Construct(builder);
+        CustomBurgerCooker.OnItemChoosed += level.GetCooker;
         CustomBurgerCooker.OnItemChoosed += ingridientPanel.OnCookerChoosed;
     }
     //---------------------------------------------------------------------------------------------------------------
