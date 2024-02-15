@@ -4,21 +4,26 @@ using System.Collections.Generic;
 public class StateMachine
 {
     private State CurrentState { get; set; }
-    private Dictionary<Type, State> _states = new Dictionary<Type, State>();
+    private Dictionary<string, State> _states;
 
-    public void AddState(State state)
+    public StateMachine()
     {
-        _states.Add(state.GetType(), state);
+        _states = new Dictionary<string, State>();
     }
 
-    public void SetState<T>() where T : State
+    public void AddState(string id, State state)
     {
-        var type = typeof(T);
+        _states.Add(id, state);
+    }
 
-        if (CurrentState.GetType() == type) return;
-        if(_states.TryGetValue(type, out var newState))
+    public void SetState(string id)
+    {
+        if(_states.TryGetValue(id, out var newState))
         {
-            CurrentState.Exit();
+           if(CurrentState != null)
+            {
+                CurrentState.Exit();
+            }
             CurrentState = newState;
             CurrentState.Enter();
         }

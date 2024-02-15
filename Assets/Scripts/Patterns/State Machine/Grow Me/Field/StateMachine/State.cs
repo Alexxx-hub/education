@@ -1,6 +1,6 @@
 public abstract class State
 {
-    private readonly StateMachine _stateMachine;
+    protected readonly StateMachine _stateMachine;
 
     public State(StateMachine stateMachine)
     {

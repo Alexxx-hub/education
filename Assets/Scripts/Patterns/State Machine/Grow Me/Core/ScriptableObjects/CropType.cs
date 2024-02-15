@@ -8,5 +8,4 @@ public class CropType : ScriptableObject
     [field: SerializeField] public int CountPerUnit { get; private set; }
     [field: SerializeField] public int WaterPerUnit { get; private set; }
     [field: SerializeField] public int TimeToGrow { get; private set; }
-    [field: SerializeField] public int TimeToCollect { get; private set; }
 }
