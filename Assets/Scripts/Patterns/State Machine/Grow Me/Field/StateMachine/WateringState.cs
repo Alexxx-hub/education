@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class PlantState : State
+public class WateringState : State
 {
     private float _maxVolume;
     private float _currentVolume;
 
     private Field _field;
 
-    public PlantState(StateMachine stateMachine, Field field) : base(stateMachine) 
-    { 
+    public WateringState(StateMachine stateMachine, Field field) : base(stateMachine)
+    {
         _field = field;
         _maxVolume = field.Square * 1.2f;
         _currentVolume = 0;
@@ -16,8 +16,8 @@ public class PlantState : State
 
     public override void Enter()
     {
-        _field.stage = 1;
-        _field.Sprite.sprite = _field.SpriteArray[1];
+        _field.stage = 2;
+        _field.Sprite.sprite = _field.SpriteArray[2];
     }
 
     public override void Exit()
@@ -27,12 +27,11 @@ public class PlantState : State
 
     public override void Proceed()
     {
-        _currentVolume += _field.PlantingSpeed * Time.deltaTime;
+        _currentVolume += _field.WateringSpeed * Time.deltaTime;
         Debug.Log(_currentVolume);
         if (_currentVolume >= _maxVolume)
         {
-            _stateMachine.SetState("watering");
+            _stateMachine.SetState("grow");
         }
     }
-
 }

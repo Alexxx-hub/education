@@ -32,4 +32,9 @@ public class StateMachine
     {
         CurrentState?.Update();
     }
+
+    public void Proceed()
+    {
+        CurrentState?.Proceed();
+    }
 }

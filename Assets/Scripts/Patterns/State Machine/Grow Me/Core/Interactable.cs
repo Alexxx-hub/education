@@ -1,25 +1,24 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class Interactable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Interactable : MonoBehaviour
 {
+    [HideInInspector] public SpriteRenderer Sprite { get; set; }
+
     [SerializeField] private Color32 _activeColor;
     [SerializeField] private Color32 _defaultColor;
 
-    private SpriteRenderer _image;
-
     private void Awake()
     {
-        _image = GetComponent<SpriteRenderer>();
+        Sprite = GetComponent<SpriteRenderer>();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    private void OnMouseEnter()
     {
-       _image.color = _activeColor;
+        Sprite.color = _activeColor;
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void OnMouseExit()
     {
-        _image.color = _defaultColor;
+        Sprite.color = _defaultColor;
     }
 }

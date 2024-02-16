@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public int currentTool;
 
-    [SerializeField] private int _currentTool;
     private Camera _mainCamera;
     private Field _currentField;
 
@@ -24,10 +24,15 @@ public class Player : MonoBehaviour
             }
 
             _currentField = rayhit.transform.GetComponent<Field>();
-            if (_currentField.stage != _currentTool) return;
+            if (_currentField.stage != currentTool) return;
 
             _currentField.Work();
 
         }
+    }
+
+    public void SetTool(int id)
+    {
+        currentTool = id;
     }
 }
