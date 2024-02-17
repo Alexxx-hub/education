@@ -3,6 +3,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int currentTool;
+    public int currentCrop;
+    public CropType[] crops;
 
     private Camera _mainCamera;
     private Field _currentField;
@@ -26,7 +28,7 @@ public class Player : MonoBehaviour
             _currentField = rayhit.transform.GetComponent<Field>();
             if (_currentField.stage != currentTool) return;
 
-            _currentField.Work();
+            _currentField.Work(crops[currentCrop]);
 
         }
     }
@@ -34,5 +36,10 @@ public class Player : MonoBehaviour
     public void SetTool(int id)
     {
         currentTool = id;
+    }
+
+    public void SetCrop(int id)
+    {
+        currentCrop = id;
     }
 }

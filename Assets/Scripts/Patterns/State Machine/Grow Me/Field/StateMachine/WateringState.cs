@@ -10,7 +10,6 @@ public class WateringState : State
     public WateringState(StateMachine stateMachine, Field field) : base(stateMachine)
     {
         _field = field;
-        _maxVolume = field.Square * 1.2f;
         _currentVolume = 0;
     }
 
@@ -18,6 +17,7 @@ public class WateringState : State
     {
         _field.stage = 2;
         _field.Sprite.sprite = _field.SpriteArray[2];
+        _maxVolume = _field.Square * _field.CropType.WaterPerUnit;
     }
 
     public override void Exit()

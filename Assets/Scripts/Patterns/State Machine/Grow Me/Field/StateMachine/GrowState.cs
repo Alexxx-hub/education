@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class GrowState : State
 {
-    private const float MAX_TIME = 8f;
-    private const int STEPS = 4;
+    private readonly int STEPS = 4;
     private const int OFFSET = 4;
 
     private int _currentStep;
+    private float _stepTime;
     private float _currentTime;
     private Field _field;
 
@@ -21,6 +21,7 @@ public class GrowState : State
     {
         _field.stage = 3;
         _field.Sprite.sprite = _field.SpriteArray[3];
+        _stepTime = _field.CropType.TimeToGrow / STEPS;
     }
 
     public override void Exit()
@@ -31,9 +32,9 @@ public class GrowState : State
 
     public override void Update()
     {
-        _currentTime += Time.deltaTime * _field.GrowingSpeed;
+        _currentTime += Time.deltaTime;
         Debug.Log(_currentTime);
-        if (_currentTime >= MAX_TIME)
+        if (_currentTime >= _stepTime)
         {
             if (_currentStep >= STEPS)
             {

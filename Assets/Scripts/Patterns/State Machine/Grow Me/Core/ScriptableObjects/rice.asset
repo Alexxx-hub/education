@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07784285493056d4c8e7862b6eafef2e, type: 3}
-  m_Name: wheat
+  m_Name: rice
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: wheat
-  <CountPerUnit>k__BackingField: 0.7
-  <WaterPerUnit>k__BackingField: 0.5
-  <TimeToGrow>k__BackingField: 12
+  <Name>k__BackingField: rice
+  <CountPerUnit>k__BackingField: 0.5
+  <WaterPerUnit>k__BackingField: 2
+  <TimeToGrow>k__BackingField: 15

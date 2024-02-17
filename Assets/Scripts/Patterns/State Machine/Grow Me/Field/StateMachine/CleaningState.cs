@@ -10,7 +10,6 @@ public class CleaningState : State
     public CleaningState(StateMachine stateMachine, Field field) : base(stateMachine) 
     {
         _field = field;
-        _maxVolume = field.Square * 1.2f;
         _currentVolume = 0;
     }
 
@@ -18,6 +17,7 @@ public class CleaningState : State
     {
         _field.stage = 4;
         _field.Sprite.sprite = _field.SpriteArray[0];
+        _maxVolume = _field.Square * _field.CropType.CountPerUnit;
     }
 
     public override void Exit()

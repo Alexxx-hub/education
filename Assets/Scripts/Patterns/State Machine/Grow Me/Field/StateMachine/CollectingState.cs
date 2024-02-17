@@ -10,14 +10,14 @@ public class CollectingState : State
     public CollectingState(StateMachine stateMachine, Field field) : base(stateMachine)
     {
         _field = field;
-        _maxVolume = field.Square * 1.2f;
         _currentVolume = 0;
     }
 
     public override void Enter()
     {
-        _field.stage = 3;
+        _field.stage = 4;
         _field.Sprite.sprite = _field.SpriteArray[7];
+        _maxVolume = _field.Square * _field.CropType.CountPerUnit;
     }
 
     public override void Exit()
