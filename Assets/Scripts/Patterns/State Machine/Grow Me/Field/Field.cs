@@ -1,7 +1,11 @@
 using UnityEngine;
 
+public delegate void CollectCrop(string id, float value);
+
 public class Field : Interactable
 {
+    public CollectCrop collectCrop;
+
     [HideInInspector] public int stage;
     [field: SerializeField] public int Square {  get; private set; }
     [field: SerializeField] public float WateringSpeed {  get; private set; }

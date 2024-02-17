@@ -15,7 +15,7 @@ public class CollectingState : State
 
     public override void Enter()
     {
-        _field.stage = 4;
+        _field.stage = 3;
         _field.Sprite.sprite = _field.SpriteArray[7];
         _maxVolume = _field.Square * _field.CropType.CountPerUnit;
     }
@@ -23,6 +23,7 @@ public class CollectingState : State
     public override void Exit()
     {
         _currentVolume = 0;
+        _field.collectCrop.Invoke(_field.CropType.name, _maxVolume);
     }
 
     public override void Proceed()

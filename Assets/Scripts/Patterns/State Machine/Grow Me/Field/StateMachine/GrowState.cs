@@ -19,7 +19,7 @@ public class GrowState : State
 
     public override void Enter()
     {
-        _field.stage = 3;
+        _field.stage = -1;
         _field.Sprite.sprite = _field.SpriteArray[3];
         _stepTime = _field.CropType.TimeToGrow / STEPS;
     }

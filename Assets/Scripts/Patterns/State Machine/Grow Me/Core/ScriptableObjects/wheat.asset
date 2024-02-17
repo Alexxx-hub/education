@@ -15,4 +15,4 @@ MonoBehaviour:
   <Name>k__BackingField: wheat
   <CountPerUnit>k__BackingField: 0.7
   <WaterPerUnit>k__BackingField: 0.5
-  <TimeToGrow>k__BackingField: 12
+  <TimeToGrow>k__BackingField: 2
