@@ -4,9 +4,7 @@ public class Interactable : MonoBehaviour
 {
     [HideInInspector] public SpriteRenderer Sprite { get; set; }
 
-    [SerializeField] private Color32 _activeColor;
-    [SerializeField] private Color32 _defaultColor;
-
+    protected bool _isActive;
     private void Awake()
     {
         Sprite = GetComponent<SpriteRenderer>();
@@ -14,11 +12,11 @@ public class Interactable : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Sprite.color = _activeColor;
+        _isActive = true;
     }
 
     private void OnMouseExit()
     {
-        Sprite.color = _defaultColor;
+        _isActive = false;
     }
 }

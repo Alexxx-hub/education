@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public delegate void CollectCrop(string id, float value);
 
 public class Field : Interactable
 {
     public CollectCrop collectCrop;
+    public GameObject statusBar;
+    public Image statusBarImage; 
 
     [HideInInspector] public int stage;
     [field: SerializeField] public int Square {  get; private set; }
@@ -32,11 +35,21 @@ public class Field : Interactable
     private void Update()
     {
         _machine.Update();
+
+        ShowStastucBar();
     }
 
     public void Work(CropType cropType)
     {
         CropType = cropType;
         _machine.Proceed();
+    }
+
+    private void ShowStastucBar()
+    {
+        if (_isActive)
+            statusBar.SetActive(true);
+        else if (!_isActive && statusBar.activeInHierarchy)
+            statusBar.SetActive(false);
     }
 }

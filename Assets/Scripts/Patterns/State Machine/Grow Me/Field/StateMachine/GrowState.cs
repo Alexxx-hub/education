@@ -8,9 +8,8 @@ public class GrowState : State
     private int _currentStep;
     private float _stepTime;
     private float _currentTime;
-    private Field _field;
 
-    public GrowState(StateMachine stateMachine, Field field) : base(stateMachine)
+    public GrowState(StateMachine stateMachine, Field field) : base(stateMachine, field)
     {
         _field = field;
         _currentTime = 0;
@@ -33,7 +32,7 @@ public class GrowState : State
     public override void Update()
     {
         _currentTime += Time.deltaTime;
-        Debug.Log(_currentTime);
+
         if (_currentTime >= _stepTime)
         {
             if (_currentStep >= STEPS)
