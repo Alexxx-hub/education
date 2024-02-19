@@ -10,6 +10,7 @@ public class Level : MonoBehaviour
     private void Awake()
     {
         _storage = new Storage();
+        Cursor.visible = false;
     }
 
     private void OnEnable()

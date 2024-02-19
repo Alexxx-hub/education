@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
     public int currentTool;
     public int currentCrop;
     public CropType[] crops;
+    public Pointer pointer;
 
     private Camera _mainCamera;
     private Field _currentField;
@@ -17,7 +18,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
             var rayhit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Input.mousePosition));
             if (!rayhit)
@@ -29,13 +30,18 @@ public class Player : MonoBehaviour
             if (_currentField.stage != currentTool) return;
 
             _currentField.Work(crops[currentCrop]);
-
+            pointer.SetAnimatorWork(true);
         }
+
+        if (Input.GetMouseButtonUp(0))
+            pointer.SetAnimatorWork(false);
     }
 
     public void SetTool(int id)
     {
         currentTool = id;
+        pointer.SetSprite(id);
+        pointer.SetAnimatorState(id);
     }
 
     public void SetCrop(int id)
